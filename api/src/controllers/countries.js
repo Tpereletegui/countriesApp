@@ -18,12 +18,32 @@ async function data(){
     }
   
   }
+async function getCountriesOrder(req,res,next){
+try {
+  let {order} =req.params;
+   let {page} =req.query;
+  if(!page) page=1;
+  const itemsPerPage=10; 
+  let data= await Country.findAll();
+  let orderData=[];
+  if(order==="asc") orderData =data.sort((a,b)=> a.name.localeCompare(b.name));
+  if(order==="desc") orderData= data.sort((a,b)=> b.name.localeCompare(a.name));
+  if(order==="larger") orderData= data.sort((a, b)=> b.population - a.population);
+  if(order==="smaller") orderData= data.sort((a, b)=> a.population - b.population);
+  res.json( orderData.slice(itemsPerPage *(page -1), (itemsPerPage * (page- 1))+ itemsPerPage));
+} catch (error) {
+  next(error)
+}
 
+}
 
 
 async function getCountries(req, res, next) {
     try {
-        let {page, name} =req.query;
+        let {name} =req.query;
+        let {page} =req.query;
+        if(!page) page = 1;
+        const itemsPerPage=10;
         if(name !== undefined){
           const country = await Country.findAll({
             where: {
@@ -35,14 +55,9 @@ async function getCountries(req, res, next) {
           console.log("matches;",country);
           return res.json(country); 
         }else {
-        if(!page) page = 1;
-        const itemsPerPage=10;
         Country.findAll()
-            .then(dbCountries => {
-                console.log("countries", dbCountries.slice(itemsPerPage * (page -1), (itemsPerPage * (page - 1))+ itemsPerPage))
-                res.json(dbCountries.slice(itemsPerPage * (page -1), (itemsPerPage * (page - 1))+ itemsPerPage));
-            })
-          }
+         .then(data => res.json(data.slice(itemsPerPage *(page -1), (itemsPerPage * (page- 1))+ itemsPerPage)));
+        }
     } catch (error) {
         next(error);
     }
@@ -82,7 +97,8 @@ async function getOneCountry (req, res, next) {
 module.exports = { 
   getCountries,
   data,
-  getOneCountry
+  getOneCountry,
+  getCountriesOrder
   
 };
 

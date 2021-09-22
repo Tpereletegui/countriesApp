@@ -1,83 +1,91 @@
 import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Nav from "../Nav/Nav";
-import {getCountries, sortCountries} from "../../redux/actions"; 
+import {getCountries, getCountriesOrder} from "../../redux/actions"; 
+
 
 
 function Home() {
+    
+    
+
     let countries= useSelector (state => 
         {   
          return   state.countries
         })
-    console.log(countries);
+
+
+    
     const dispatch= useDispatch();
-    const history = useHistory(); 
+     
     const [page, setPage] = useState(1);
+    const [order, setOrder] =useState("")
     
     
-     useEffect(()=> {
+       useEffect(()=> {
         dispatch(getCountries(1))
-    }, [dispatch]); 
-
+    }, [dispatch]);  
+     
      function handleChange(e){
-        
-
-     if(e.target.value==="default") dispatch(getCountries(1));
-     else sorted(e.target.value);
+     if(e.target.value==="all") dispatch(getCountries(1));
+     else {
+         setOrder(e.target.value);
+         setPage(1);
+         dispatch(getCountriesOrder(e.target.value, 1))
+    }
+     
        
     } 
-
-    function sorted(order) {
-        if( order ==="asc") return countries =countries.sort((a, b) => a.name.localeCompare(b.name));
-            if(order==="desc") return countries= countries.sort((a, b)=>b.name.localeCompare(a.name));
-            if(order==="large") return countries= countries.sort((a,b)=> a.population - b.population);
-            if(order==="small") return countries= countries.sort((a,b)=>b.population - a.population);
-    }
+    console.log(order);
     
+   
 
      function pages(e) {
         if(e.target.value==="next"){
-            dispatch(getCountries(page + 1));
+            dispatch(getCountriesOrder(order, page + 1));
             setPage(page + 1);
         }
         else {
-            dispatch(getCountries(page - 1));
+            dispatch(getCountriesOrder(order, page - 1));
             setPage(page - 1);
         }
     } 
-
+    console.log(page);
     
 
     return (
         
         <div>
-            <Nav/>
-            <div>
-
+             <Nav/> 
+        
             <label>Filtrar</label>
             <select  onChange={handleChange} >
+                
+                <option value="all">All</option>
                 <option value="asc">A-Z</option>
                 <option value="desc">Z-A</option>
-                <option value="large">Population: Largest</option>
-                <option value="small">Population: Smallest</option>
-                <option value="default">default</option>
+                <option value="larger">Population: Largest</option>
+                <option value="smaller">Population: Smallest</option>
+                
             </select>
-            </div>
-        <div>
-            {console.log(countries)}
+            
+        
+            
 
-            {countries.map((e, i)=>{
+            {
+            countries.length?
+            countries.map((e, i)=>{
                 
                 return (
                     <div key={i}>
                       <img width="100px" src={e.image} alt="" />
-                      <NavLink to={`/details/${e.id}`}><p>{e.name}</p></NavLink> 
+                      <Link to={`/detail/${e.id}`}><p>{e.name}</p></Link> 
                       <p>{e.continent}</p>
                   </div>  
                 )
-            })}
-            </div>
+            }): <p>no gordito</p>}
+            
 
             <button onClick={pages} value="previous" disabled={page===1}>Previous</button>
             <button onClick={pages} value="next" disabled={countries.length<10}>Next</button>
@@ -87,7 +95,11 @@ function Home() {
 
 
     )
-     
+      
+
+   
 }
+
+
 
 export default Home;

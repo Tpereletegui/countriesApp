@@ -1,10 +1,17 @@
  import axios from "axios";
 
-
+export function getCountriesOrder(order, page) {
+    return function(dispatch) {
+        axios.get("http://localhost:3001/countries/"+ order + "?page=" + page)
+        .then(response => {
+            return dispatch({type: "GET_COUNTRIES_ORDER", payload: response.data})
+        })
+    }
+}
 
  export function getCountries(page) {
      return function(dispatch) {
-         axios.get("http://localhost:3001/countries?page="+page)
+         axios.get("http://localhost:3001/countries?page="+ page)
          .then(response => {
              return dispatch({type: "GET_COUNTRIES", payload: response.data})
          })
@@ -24,7 +31,7 @@
 
  export function getCountryId(id) {
      return function(dispatch) {
-         axios.get("http://localhost:3001/countries/"+id)
+         axios.get("http://localhost:3001/country/"+id)
          .then(response => dispatch({
              type: "GET_COUNTRY_ID", payload: response.data
          }))
@@ -43,10 +50,14 @@
 
  export function sortCountries(order) {
     return {
-        type: "SORT_COUNTRIES",
-        payload: order
+            type: "SORT_COUNTRIES", payload: order
+        }
+
     }
- }
+    
+        
+    
+ 
 
 
  
