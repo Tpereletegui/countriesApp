@@ -1,23 +1,27 @@
 const { Country, Activity, Op} = require("../db");
 const axios=require("axios");
+ const Data=require("../../countries.json"); 
+
 
 async function data(){
-    const countries= await axios.get("https://restcountries.eu/rest/v2/all");
-    const data= countries.data
-      for(var i=0; i < data.length; i++) {
+
+     
+       for(var i=0; i<Data.length; i++) {
       Country.create({
-        id: data[i].alpha3Code,
-        name: data[i].name,
-        image: data[i].flag,
-        continent: data[i].region,
-        capital: data[i].capital,
-        subregion: data[i].subregion,
-        area: data[i].area,
-        population: data[i].population 
-      })
-    }
-  
+        id: Data[i].alpha3Code,
+        name: Data[i].name,
+        image: Data[i].flag,
+        continent: Data[i].region,
+        capital: Data[i].capital,
+        subregion: Data[i].subregion,
+        area: Data[i].area,
+        population: Data[i].population 
+      }) 
+    } 
+      
   }
+  
+  
 async function getCountriesOrder(req,res,next){
 try {
   let {order} =req.params;
@@ -36,14 +40,41 @@ try {
 }
 
 }
+async function getAllCountries(req, res, next) {
+  try {
+      
+      Country.findAll()
+       .then(data => res.json(data))
+      
+  } catch (error) {
+      next(error);
+  }
+};
+
+
+async function getOneCountry (req, res, next) {
+try {
+  const {id} = req.params;
+  let country= await Country.findOne({where: {id: id}, include: {model: Activity}});
+  console.log(country);
+  res.json(country);
+} catch (error) {
+  next(error)
+}
+};
+
 
 
 async function getCountries(req, res, next) {
     try {
         let {name} =req.query;
         let {page} =req.query;
-        if(!page) page = 1;
-        const itemsPerPage=10;
+        let itemsPerPage=10;
+        if(!page) { 
+          page = 1;
+          
+        }
+        
         if(name !== undefined){
           const country = await Country.findAll({
             where: {
@@ -98,7 +129,8 @@ module.exports = {
   getCountries,
   data,
   getOneCountry,
-  getCountriesOrder
+  getCountriesOrder,
+  getAllCountries
   
 };
 

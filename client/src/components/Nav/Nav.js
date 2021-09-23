@@ -24,9 +24,11 @@ function Nav(){
 	return (
 		<div>
 		<NavLink to="/home"> Home </NavLink>
-		<NavLink to="/create"> Crear Actividad </NavLink>
+		<NavLink to="/create"> Create Activity </NavLink>
+		
 		<input type="text" placeholder="Search Your Country" onChange={handleInput}  value={input} />
 		<button onClick={buscar}>Buscar</button>
+		
 		 </div>
 		
 

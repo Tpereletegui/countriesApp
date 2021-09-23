@@ -41,9 +41,10 @@ const {data} =require("./src/controllers/countries");
 } */
 
 // Syncing all the models at once.
-conn.sync({force: true}).then(() => {
+conn.sync({force:true}).then(() => {
   server.listen(3001, () => {
     console.log('%s listening at 3001');
+    
     data();
     // eslint-disable-line no-console
   });

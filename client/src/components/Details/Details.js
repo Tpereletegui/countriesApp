@@ -1,6 +1,7 @@
 import React from "react";
 import { connect} from "react-redux";
 import {getCountryId } from "../../redux/actions";
+import Nav from "../Nav/Nav";
 
 
 class Details extends React.Component{
@@ -16,16 +17,36 @@ class Details extends React.Component{
 
     render() {
         return (
+            
             <div>
+                    <Nav/>
                     {console.log(this.props.countryDetail)}
                     <img src={this.props.countryDetail.image} alt={this.props.countryDetail.name}/>
-                    <h3>{this.props.countryDetail.name}</h3>
+                    <h1>{this.props.countryDetail.name}</h1>
                     <p>Capital: {this.props.countryDetail.capital}</p>
                     <p>Continent: {this.props.countryDetail.continent}</p>
                     <p>Subregion: {this.props.countryDetail.subregion}</p>
                     <p>Area: {this.props.countryDetail.area}</p>
                     <p>Population: {this.props.countryDetail.population}</p>
-                    </div>
+                    
+                        <div>
+
+                        <h3>Activities</h3>
+                         {this.props.countryDetail.activities?  this.props.countryDetail.activities.map(x => 
+                           
+                           <div>
+                                 <h4>{x.name.toUpperCase()}</h4>
+                                 <p>Duration: {x.duration} Days</p>
+                                 <p>Difficulty: {x.difficulty}</p>
+                                 <p>Season: {x.season}</p>
+                              </div>
+                         ):   <p>Este pais no tiene actividades</p>}
+                        
+                         </div>
+                    
+                    
+                </div>
+                
         )
     }
 }

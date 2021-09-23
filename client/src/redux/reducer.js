@@ -19,6 +19,11 @@ function reducer(state= initialState, action){
                 ...state,
                 countries: action.payload
             }
+        case "GET_ALL_COUNTRIES":
+            return {
+                ...state,
+                countries: action.payload
+            }    
 
         case "GET_COUNTRY_NAME":
                 return {
