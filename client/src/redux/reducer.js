@@ -35,20 +35,28 @@ function reducer(state= initialState, action){
                     ...state,
                     countryDetail: action.payload
                 }
+        case "SORT_COUNTRIES_CONTINENT":
+            return {
+                ...state,
+                countries: action.payload.filter(x => x.continent === action.continent)
+            }
 
-        /* case "SORT_COUNTRIES":
-
-        let sorted= state.countries.slice().sort(function(a,b ){
-            if(action.order==="asc") return a.name.localeCompare(b.name);
-            if(action.order==="desc") return b.name.localeCompare(a.name);
-            if(action.order==="large") return a.population - b.population;
-            if(action.order==="small") return b.population - a.population;
-            if(action.order==="all") return state.countries
-        })
-        return {
-            ...state,
-            countries: sorted
-        } */
+        case "GET_ACTIVITIES":
+            let sorted=[];
+            if(action.order==="1" ||action.order==="2"|| action.order==="3"||action.order==="4" ||action.order==="5" ){
+                sorted=action.payload.filter(x => x.difficulty === action.order)
+            }else{
+                sorted=action.payload.filter( x=> x.season === action.order)
+            }
+                return {
+                    ...state,
+                    activities: sorted
+                }    
+        /* case "CREATE ACTIVITY": 
+                 return {
+                    ...state,
+                     activities: activities.push(action.payload)
+            } */
         default:
             return state
 

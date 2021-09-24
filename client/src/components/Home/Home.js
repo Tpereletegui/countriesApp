@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Nav from "../Nav/Nav";
-import {getCountries, getCountriesOrder} from "../../redux/actions"; 
+import {getCountries, getCountriesOrder, sortCountriesContinent} from "../../redux/actions"; 
 
 
 
@@ -10,10 +10,8 @@ function Home() {
     
     
 
-    let countries= useSelector (state => 
-        {   
-         return   state.countries
-        })
+    let countries= useSelector (state => state.countries)
+       
 
 
     
@@ -52,14 +50,22 @@ function Home() {
         }
     } 
     console.log(page);
+
+    function handleSelectContinent(e) {
+        dispatch(sortCountriesContinent(e.target.value))
+    }
+
+    function handleSelectActivity(e) {
+        dispatch(getActivities(e.target.value))
+    }
     
 
     return (
         
         <div>
              <Nav/> 
-        
-            <label>Filtrar</label>
+            <p>Select your Filter</p>
+            <label>Order</label>
             <select  onChange={handleChange} >
                 
                 <option value="all">All</option>
@@ -69,28 +75,57 @@ function Home() {
                 <option value="smaller">Population: Smallest</option>
                 
             </select>
+            <label>Continent</label>
+            <select  onChange={handleSelectContinent} > 
+                <option value="-">-</option>
+                <option value="Europe">Europe</option>
+                <option value="Americas">Americas</option>
+                <option value="Asia">Asia</option>
+                <option value="Africa">Africa</option>
+                <option value="Oceania">Oceania</option>
+            </select>
             
-        
-            
+            <label>Activity</label>
+            <select onChange={handleSelectActivity} >
+                <optgroup >Difficulty</optgroup>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                <optgroup>Season</optgroup> 
+                    <option value="summer">Summer</option>
+                    <option value="Spring">Spring</option>
+                    <option value="winter">Winter</option>
+                    <option value="autumn">Autumn</option>   
+                    
+            </select>
 
-            {
+            
+             {
             countries.length?
             countries.map((e, i)=>{
-                
+                {console.log(countries)}
                 return (
                     <div key={i}>
                       <img width="100px" src={e.image} alt="" />
                       <Link to={`/detail/${e.id}`}><p>{e.name}</p></Link> 
                       <p>{e.continent}</p>
                   </div>  
-                )
-            }): <p>no gordito</p>}
+                )}): <p>No se encontraron paises</p>
+                }
+                
             
-
+            
+            
             <button onClick={pages} value="previous" disabled={page===1}>Previous</button>
-            <button onClick={pages} value="next" disabled={countries.length<10}>Next</button>
-
+            <button onClick={pages} value="next" disabled={countries.length<10 || countries.length >50}>Next</button>
+             
+             
             
+            
+           
+        
         </div>
 
 

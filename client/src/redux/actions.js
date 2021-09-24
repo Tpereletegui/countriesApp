@@ -17,6 +17,24 @@ export function getAllCountries(page) {
     }
 };
 
+export function sortCountriesContinent(continent){
+    return function(dispatch) {
+        axios.get("http://localhost:3001/countries/all")
+        .then(response => {
+            return dispatch({type: "SORT_COUNTRIES_CONTINENT", payload: response.data, continent: continent})
+        })
+    }
+}
+
+export function sortCountriesActivity(activity){
+    return function(dispatch) {
+        axios.get("http://localhost:3001/countries/all")
+        .then(response => {
+            return dispatch({type: "SORT_COUNTRIES_ACTIVITY", payload: response.data, activity: activity})
+        })
+    }
+}
+
  export function getCountries(page) {
      return function(dispatch) {
          axios.get("http://localhost:3001/countries?page="+ page)
@@ -47,25 +65,46 @@ export function getAllCountries(page) {
  };
 
 
- export function createActivity (values) {
+ /* export function createActivity (values) {
      return function(dispatch){
          axios.post("http://localhost:3001/activity", values)
          .then(response => console.log(response))
          .catch(e => console.log(e))
      }
- };
+ }; */
+
+ export function createActivity (values) {
+    return function(dispatch){
+        axios.post("http://localhost:3001/activity", values)
+        .then(response =>dispatch({
+            type: "CREATE_ACTIVITY", payload: response.data
+        }))
+        .catch(e => console.log(e))
+    }
+}
+
+export function getActivities (order ) {
+    return function (dispatch) {
+        axios.get("http://localhost:3001/activities")
+        .then(response => dispatch({
+            type: "GET_ACTIVITIES", payload: response.data
+        }))
+    }
+} 
 
 
- export function sortCountries(order) {
+
+
+
+ /* export function sortCountries(order) {
     return {
             type: "SORT_COUNTRIES", payload: order
         }
 
-    }
+    } */
     
         
     
  
 
 
- 

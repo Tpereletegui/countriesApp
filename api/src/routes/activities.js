@@ -1,9 +1,10 @@
 const {Router} =require ("express");
-const {createActivity} = require("../controllers/activities");
+const {createActivity, getActivities} = require("../controllers/activities");
 const router= Router();
 
 
 router.post("/activity", createActivity);
+router.get("/activities/:order", getActivities)
 
 
 
