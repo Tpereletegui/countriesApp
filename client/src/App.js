@@ -5,6 +5,7 @@ import LandingPage from "./components/LandingPage/landingPage.js";
 import Home from "./components/Home/Home";
 import Form from "./components/Form/Form";
 import Details from "./components/Details/Details";
+import Activities from './components/Activities/Activities';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Route path="/detail" component={Details} />
       <Route path="/home" component={Home} />
       <Route path="/create" component={Form} />
+      <Route path="/activities" component={Activities}/>
     </div>
   )
 }

@@ -23,6 +23,7 @@ function Form () {
     })
 
     const handleChange = (e) => {
+        
         setValues({
             ...values,
             [e.target.name]: e.target.value
@@ -73,14 +74,32 @@ function Form () {
         <div>
         <Nav />
         <form onSubmit={onSubmit}>
-            <label htmlFor="">Name: </label>
+             <label htmlFor="">Name: </label>
             <input name="name" value={values.name} onChange={handleChange}/>
-            <label htmlFor="">Difficulty: </label>
-            <input name="difficulty" value={values.difficulty} onChange={handleChange}/>
+            {/* <label htmlFor="">Difficulty: </label>
+            <input name="difficulty" value={values.difficulty} onChange={handleChange}/> */}
             <label htmlFor="">Duration: </label>
             <input name="duration" value={values.duration} onChange={handleChange}/>
-            <label htmlFor="">Season: </label>
-            <input name="season" value={values.season} onChange={handleChange}/>
+            {/* <label htmlFor="">Season: </label>
+            <input name="season" value={values.season} onChange={handleChange}/>  */}
+            <label>Difficulty</label>
+            <select name="difficulty" onChange={handleChange}>
+               <option value="1">1</option> 
+               <option value="2">2</option> 
+               <option value="3">3</option> 
+               <option value="4">4</option> 
+               <option value="5">5</option> 
+            </select>
+
+            <label>Season</label>
+            <select name="season" onChange={handleChange}>
+               <option value="-">-</option> 
+               <option value="summer">Summer</option> 
+               <option value="spring">Spring</option> 
+               <option value="autumn">Autumn</option> 
+               <option value="winter">Winter</option> 
+               
+            </select>
             
             <select onChange={handleSelect} name="countries" multiple>
                 {

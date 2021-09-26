@@ -85,10 +85,12 @@ export function sortCountriesActivity(activity){
 
 export function getActivities (order ) {
     return function (dispatch) {
-        axios.get("http://localhost:3001/activities")
-        .then(response => dispatch({
+        axios.get("http://localhost:3001/activities?order=" + order)
+        .then(response => {
+            console.log(response)
+             dispatch({
             type: "GET_ACTIVITIES", payload: response.data
-        }))
+        })})
     }
 } 
 

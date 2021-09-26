@@ -32,13 +32,46 @@ const axios=require("axios");
 
 async function getActivities (req, res, next) {
     try {
-        const {order} =req.params;
-        let activities= await Activity.findAll();
-        let orderData=[];
-        if(!order) orderData= activities;
-        if(order.length===1) orderData= activities.filter(x => x.difficulty === parseInt(order));
-        if(order.length>1)  orderData= activities.filter(x => x.season === order)
-        res.json(orderData)
+        const {order} =req.query;
+        console.log(order.length)
+        /* let activities= await Activity.findAll({include: {model: Country}}); */
+        /* console.log(activities); */
+        let orderData;
+        if(order.length>1) {
+            var activities= await Activity.findAll({
+            where:{
+                season: order
+            },
+            include: {
+                model: Country
+            }
+          });
+          res.json(activities)
+        }
+        if(order.length<=1 ){ 
+            let activities= await Activity.findAll({
+            where:{
+                difficulty: parseInt(order)
+            },
+            include: {
+                model: Country
+            }
+        })
+        res.json(activities)
+    }
+
+        /* if(order==="-") orderData = activities;
+        if(order==="1")orderData= await activities.find(x => x.difficulty === parseInt(order));
+        if(order==="2")orderData= await activities.find(x => x.difficulty === parseInt(order));
+        if(order==="3")orderData= await activities.find(x => x.difficulty === parseInt(order));
+        if(order==="4")orderData= activities.find(x => x.difficulty === parseInt(order));
+        if(order==="5")orderData= activities.find(x => x.difficulty === parseInt(order));
+        if(order==="summer")  orderData= activities.find(x => x.season === order)
+        if(order==="winter")  orderData= activities.find(x => x.season === order) 
+        if(order==="spring")  orderData= activities.find(x => x.season === order) 
+        if(order==="autumn")  orderData= activities.find(x => x.season === order)   */
+        /* console.log(activities) */
+        /* res.json(order) */
     } catch (error) {
         next(error)
     }

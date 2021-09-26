@@ -42,16 +42,10 @@ function reducer(state= initialState, action){
             }
 
         case "GET_ACTIVITIES":
-            let sorted=[];
-            if(action.order==="1" ||action.order==="2"|| action.order==="3"||action.order==="4" ||action.order==="5" ){
-                sorted=action.payload.filter(x => x.difficulty === action.order)
-            }else{
-                sorted=action.payload.filter( x=> x.season === action.order)
+            return {
+                ...state,
+                activities: action.payload
             }
-                return {
-                    ...state,
-                    activities: sorted
-                }    
         /* case "CREATE ACTIVITY": 
                  return {
                     ...state,

@@ -41,11 +41,11 @@ const {data} =require("./src/controllers/countries");
 } */
 
 // Syncing all the models at once.
-conn.sync({force:true}).then(() => {
-  server.listen(3001, () => {
+conn.sync({force: false}).then(async function() {
+  server.listen(3001, async () => {
     console.log('%s listening at 3001');
-    
-    data();
+    let checkdatabase= await Country.findAll();
+    if(checkdatabase.length <=0 ) data();
     // eslint-disable-line no-console
   });
 });

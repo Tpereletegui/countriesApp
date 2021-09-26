@@ -4,7 +4,7 @@ const router= Router();
 
 
 router.post("/activity", createActivity);
-router.get("/activities/:order", getActivities)
+router.get("/activities", getActivities)
 
 
 

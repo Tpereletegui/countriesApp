@@ -7,7 +7,7 @@ async function data(){
 
      
        for(var i=0; i<Data.length; i++) {
-      Country.create({
+        Country.create({
         id: Data[i].alpha3Code,
         name: Data[i].name,
         image: Data[i].flag,

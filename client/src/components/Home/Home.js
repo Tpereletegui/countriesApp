@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Nav from "../Nav/Nav";
+import Activities from "../Activities/Activities";
 import {getCountries, getCountriesOrder, sortCountriesContinent} from "../../redux/actions"; 
 
 
@@ -55,9 +56,7 @@ function Home() {
         dispatch(sortCountriesContinent(e.target.value))
     }
 
-    function handleSelectActivity(e) {
-        dispatch(getActivities(e.target.value))
-    }
+    
     
 
     return (
@@ -85,21 +84,7 @@ function Home() {
                 <option value="Oceania">Oceania</option>
             </select>
             
-            <label>Activity</label>
-            <select onChange={handleSelectActivity} >
-                <optgroup >Difficulty</optgroup>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                <optgroup>Season</optgroup> 
-                    <option value="summer">Summer</option>
-                    <option value="Spring">Spring</option>
-                    <option value="winter">Winter</option>
-                    <option value="autumn">Autumn</option>   
-                    
-            </select>
+            <Link to={"/activities"}>Activities</Link>
 
             
              {
@@ -119,7 +104,7 @@ function Home() {
             
             
             <button onClick={pages} value="previous" disabled={page===1}>Previous</button>
-            <button onClick={pages} value="next" disabled={countries.length<10 || countries.length >50}>Next</button>
+            <button onClick={pages} value="next" disabled={countries.length<10 || countries.length >40}>Next</button>
              
              
             
