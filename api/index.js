@@ -22,30 +22,14 @@ const { conn, Country} = require('./src/db.js');
 const axios=require("axios");
 const {data} =require("./src/controllers/countries");
 
-/* async function data(){
-  const countries= await axios.get("https://restcountries.eu/rest/v2/all");
-  const data= countries.data
-    for(var i=0; i < data.length; i++) {
-    Country.create({
-      id: data[i].alpha3Code,
-      name: data[i].name,
-      image: data[i].flag,
-      continent: data[i].region,
-      capital: data[i].capital,
-      subregion: data[i].subregion,
-      area: data[i].area,
-      population: data[i].population 
-    })
-  }
 
-} */
 
 // Syncing all the models at once.
 conn.sync({force: false}).then(async function() {
   server.listen(3001, async () => {
     console.log('%s listening at 3001');
     let checkdatabase= await Country.findAll();
-    if(checkdatabase.length <=0 ) data();
+     if(checkdatabase.length <=0 )  data();
     // eslint-disable-line no-console
   });
 });

@@ -1,0 +1,95 @@
+.details_container{
+    background-color: white;
+    background-size: cover;
+    position:relative;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+}
+
+.details_card{
+    background-color: #e0e0de;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    width: 500px;
+    margin:40px;
+    margin-left: 32%;
+    margin-bottom: 10px;
+    bottom: 100px;
+    box-shadow: 1px 1px  0px 0px black;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+.details_card_image{
+    height: 200px;
+    width: 350px;
+    margin-left: 80px;
+    margin-top: 25px;
+    border-radius: 10px;
+}
+
+.details_activities{
+    width: 1000px;
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    margin-left: 180px;
+    margin-top: 100px;
+   
+}
+
+.details_activities_title{
+    margin-top: 130px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 28px;
+}
+
+.details_activities_card{
+    background-color: #e0e0de;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 10px;
+    display: flex;
+    justify-content: column;
+    flex-direction: column;
+    height: max-content;
+    width: 300px;
+    margin:40px;
+    margin-top: 25px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    bottom: 100px;
+    box-shadow: 1px 1px  0px 0px black;
+}
+
+.details_activities_card_name{
+    font-size: 20px;
+    
+}
+
+.details_card_name{
+    color:rgb(1, 80, 80);
+}
+
+.details_card_names{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 25px;
+    
+}
+
+.details_card_numbers{
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 25px;
+}
+
+.details_card_continent{
+    font-size: 19px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}

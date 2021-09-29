@@ -1,0 +1,121 @@
+.form_container{
+    background-color: #e0e0de;
+    background-size: cover;  
+    position:relative;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+}
+
+
+.form_form{
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    width: 380px;
+    padding: 40px;
+    margin-top: 150px;
+    margin-bottom: 10px;
+    margin-left: 33%;
+    bottom: 100px;
+    
+
+}
+
+.form_label{
+    margin-top: 50px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.form_name{
+    width: 200px;
+    margin-left:90px;
+    border-radius: 5px;
+    border: black 0.5px solid;
+}
+
+.form_duration{
+    width: 100px;
+    margin-left: 140px;
+    border-radius: 5px;
+    border: black 0.5px solid;
+}
+
+.form_difficulty{
+    width: 100px;
+    margin-left: 145px;
+}
+
+.form_season{
+    width: 100px;
+    margin-left: 145px;
+}
+
+.form_countries{
+    margin-top: 30px;
+    margin-left: 95px;
+    height: 150px;
+    width: 200px;
+
+}
+
+.form_button{
+    margin-top: 30px;
+    width: 100px;
+    margin-left: 140px;
+}
+
+.form_country{
+    margin:5px;
+    margin-top:7px;
+    font-size: 15px;
+}
+
+.form_span{
+    margin-top: 10px;
+    color:red;
+    font-size: 15px;
+}
+
+.form_duration_error{
+    width: 100px;
+    margin-left: 140px;
+    border-radius: 5px;
+    border: red 0.5px solid;
+}
+
+.form_option{
+    text-align: center;
+}
+
+.form_option_countries{
+    margin-top: 5px;
+    width: 150px;
+}
+
+.form_title{
+    font-size: 40px;
+    margin-bottom: 25px;
+    margin-top: 80px;
+    color:#293443;
+}
+
+.form_label_countries{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.form_button_countries{
+    background-color: #0e0d0d;
+    color: white;
+    height: 25px;
+    margin-top: 10px;
+    margin-bottom: 3px;
+    margin-left:150px;
+}

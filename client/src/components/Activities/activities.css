@@ -1,0 +1,98 @@
+.activities_container{
+  background-color: #e0e0de;
+  background-size: cover;
+  position:relative;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+}
+
+.activities_filters{
+    position: relative;
+    left: 33%;
+    display: flex;
+    margin-top: 30px;
+    flex-direction:row;
+    color: black;
+    
+}
+
+label{
+    margin-top: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.activities_button{
+    margin-left: 20px;
+    background-color: rgb(22, 22, 22);
+    color: white;
+}
+
+.activities_select{
+    height: 30px;
+}
+
+.activities_cards{
+display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 90px;
+  margin-top: 100px;
+  bottom: 5px;
+}
+
+.activities_card{
+    background-color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    width: 150px;
+    margin: 30px;
+    margin-top: 60px;
+    padding:70px;
+    bottom: 100px;
+    border-radius: 20px;
+    box-shadow: 1px 1px  0px 0px black;
+    
+}
+
+.activities_countries{
+    text-decoration-line:underline ;
+    margin-bottom: 5px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.activities_country{
+    text-decoration: none;
+    margin-top: 8px;
+    margin-bottom: 0px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.activities_name{
+    margin-top:8px;
+    
+    
+}
+
+.activities_title{
+    margin-top: 10px;
+    font-size: 20px;
+    color: rgb(1, 80, 80);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.activities_link{
+    text-decoration: none;
+}
+
+.activities_link:hover{
+    text-decoration-line:underline ;
+}
+
+

@@ -5,8 +5,11 @@ const axios=require("axios");
     try {
     const {name, difficulty, duration, season, countries} =req.body;
     // no controlo los datos, eso lo hago desde el formulario controlado
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
     const newActivity = await Activity.create({
-        name: name,
+        name: name.toUpperCase(),
         difficulty: parseInt(difficulty),
         duration: parseInt(duration),
         season: season
@@ -33,33 +36,39 @@ const axios=require("axios");
 async function getActivities (req, res, next) {
     try {
         const {order} =req.query;
-        console.log(order.length)
+        
         /* let activities= await Activity.findAll({include: {model: Country}}); */
         /* console.log(activities); */
         let orderData;
-        if(order.length>1) {
-            var activities= await Activity.findAll({
-            where:{
-                season: order
-            },
-            include: {
-                model: Country
+        if(order==="all"){
+            let activities=await Activity.findAll({include: {model: Country}});
+            res.json(activities)
+        }else{
+            if(order.length>1) {
+                var activities= await Activity.findAll({
+                where:{
+                    season: order
+                },
+                include: {
+                    model: Country
+                }
+              });
+              res.json(activities)
             }
-          });
-          res.json(activities)
+            if(order.length===1 ){ 
+                let activities= await Activity.findAll({
+                where:{
+                    difficulty: parseInt(order)
+                },
+                include: {
+                    model: Country
+                }
+            })
+            res.json(activities)
         }
-        if(order.length<=1 ){ 
-            let activities= await Activity.findAll({
-            where:{
-                difficulty: parseInt(order)
-            },
-            include: {
-                model: Country
-            }
-        })
-        res.json(activities)
-    }
-
+        }
+       
+    
         /* if(order==="-") orderData = activities;
         if(order==="1")orderData= await activities.find(x => x.difficulty === parseInt(order));
         if(order==="2")orderData= await activities.find(x => x.difficulty === parseInt(order));

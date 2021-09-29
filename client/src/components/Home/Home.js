@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Nav from "../Nav/Nav";
 import Activities from "../Activities/Activities";
 import {getCountries, getCountriesOrder, sortCountriesContinent} from "../../redux/actions"; 
+import "./home.css";
 
 
 
@@ -12,10 +13,7 @@ function Home() {
     
 
     let countries= useSelector (state => state.countries)
-       
 
-
-    
     const dispatch= useDispatch();
      
     const [page, setPage] = useState(1);
@@ -53,7 +51,10 @@ function Home() {
     console.log(page);
 
     function handleSelectContinent(e) {
-        dispatch(sortCountriesContinent(e.target.value))
+        if(e.target.value==="-") {
+            dispatch(getCountries(1))
+
+        }else{dispatch(sortCountriesContinent(e.target.value))}
     }
 
     
@@ -61,10 +62,11 @@ function Home() {
 
     return (
         
-        <div>
+        <div className="contenedor">
              <Nav/> 
-            <p>Select your Filter</p>
-            <label>Order</label>
+
+             <div className="filters">
+            <label className="label">Order</label>
             <select  onChange={handleChange} >
                 
                 <option value="all">All</option>
@@ -74,7 +76,7 @@ function Home() {
                 <option value="smaller">Population: Smallest</option>
                 
             </select>
-            <label>Continent</label>
+            <label className="label">Continent</label>
             <select  onChange={handleSelectContinent} > 
                 <option value="-">-</option>
                 <option value="Europe">Europe</option>
@@ -83,29 +85,37 @@ function Home() {
                 <option value="Africa">Africa</option>
                 <option value="Oceania">Oceania</option>
             </select>
+            </div>
             
-            <Link to={"/activities"}>Activities</Link>
 
-            
+            <div className="cards"> 
              {
             countries.length?
             countries.map((e, i)=>{
                 {console.log(countries)}
                 return (
-                    <div key={i}>
-                      <img width="100px" src={e.image} alt="" />
-                      <Link to={`/detail/${e.id}`}><p>{e.name}</p></Link> 
-                      <p>{e.continent}</p>
+                    <div className="card" key={i}>
+                        <div>
+                      <img width="100px" src={e.image} alt=""  className="img" />
+                      </div>
+                      <div className="name">
+                      <NavLink to={`/detail/${e.id}`} className="title"> <p className="title">{e.name}</p> </NavLink>
+                      </div> 
+                      <p className="continent">{e.continent}</p>
                   </div>  
-                )}): <p>No se encontraron paises</p>
+                )}): 
+                    <div className="imagen">
+                        <p className="fail">Countries failed to load, please select a filter o reload the website</p>
+                    </div>
+                
                 }
                 
+                </div>
             
-            
-            
-            <button onClick={pages} value="previous" disabled={page===1}>Previous</button>
-            <button onClick={pages} value="next" disabled={countries.length<10 || countries.length >40}>Next</button>
-             
+            <div className="buttons">
+            <button onClick={pages} value="previous" disabled={page===1} >Previous</button>
+            <button onClick={pages} value="next" disabled={countries.length < 9  || countries.length >40} >Next</button>
+            </div>
              
             
             

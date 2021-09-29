@@ -1,18 +1,17 @@
 import React from "react";
-import {NavLink} from "react-router-dom"
+import {NavLink} from "react-router-dom";
+import "./landingPge.css"
 
 
 function LandingPage() {
 
 	return (
-		<div>
-		 <div>
-			<h1> COUNTRIES APP  </h1>
+		<div className="main">
+			<div className="boton">
+			 <NavLink to="/home" className="link"> <button className="enter">Explore</button> </NavLink> 
 			</div>
-			<div>
-			<NavLink to="/home"> Ingresá </NavLink>
-			</div>
-		</div>
+		 </div> 
+		
 		)
 };
 

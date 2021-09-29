@@ -2,7 +2,8 @@ import React, {useEffect, useState} from "react";
 import { useDispatch} from "react-redux";
 import { NavLink} from "react-router-dom";
 import { getCountries, searchCountries } from "../../redux/actions";
-
+import "./nav.css";
+import logo from "./map.jpg"
 
 
 function Nav(){
@@ -22,12 +23,23 @@ function Nav(){
 
 	// aca poner una funcion que handle el "buscar por nombre";
 	return (
-		<div>
-		<NavLink to="/home"> Home </NavLink>
-		<NavLink to="/create"> Create Activity </NavLink>
+
+
+		<div className="container">
+			
+		<div className="searchbar">
 		
 		<input type="text" placeholder="Search Your Country" onChange={handleInput}  value={input} />
-		<button onClick={buscar}>Buscar</button>
+		<button onClick={buscar}>Search</button>
+		
+		</div>
+		<div className="links">
+		<NavLink to="/home" className="home"> Home </NavLink>
+		<NavLink to="/activities" className="activities"> Activities </NavLink>
+		
+		</div>
+		
+		
 		
 		 </div>
 		

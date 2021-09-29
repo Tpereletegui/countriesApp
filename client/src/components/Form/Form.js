@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {createActivity, getAllCountries} from "../../redux/actions";
+import {Link} from "react-router-dom";
 import Nav from "../Nav/Nav";
+import "./form.css";
 
 
 function Form () {
@@ -9,11 +11,11 @@ function Form () {
     const dispatch= useDispatch();
 
     useEffect(() => {
-       return dispatch(getAllCountries())
+         dispatch(getAllCountries())
     }, [dispatch]);
 
     console.log("countries", countries)
-
+    const [error, setError] =useState("incomplete")
     const [values, setValues] = useState({
         name: "",
         difficulty: "",
@@ -22,8 +24,56 @@ function Form () {
         countries: [] 
     })
 
-    const handleChange = (e) => {
+    function validateSeason(value) {
+        if(value!==""){
+            setError("")
+        }else{
+            setError("incomplete")
+        }
+        setValues({
+            ...values,
+            season: value
+        })
+    }
+
+    function validateDifficulty(value) {
+        if(value===""){
+            setError("incomplete")
+            
+        }
+        setValues({
+            ...values,
+            difficulty: value
+        })
+    }
+
+    function validateName(value) {
+        if(value===""){
+            setError("incomplete")
+            
+        }
+        setValues({
+            ...values,
+            name: value
+        })
+    }
+
+    function validateDuration(value) {
+        if(!/^\d+$/.test(value)){
+            setError("duration")
+        }else{
+            setError("incomplete")
+        }
+            
         
+        setValues({
+            ...values,
+            duration: value
+        })
+    }
+
+    const handleChange = (e) => {
+      
         setValues({
             ...values,
             [e.target.name]: e.target.value
@@ -31,6 +81,7 @@ function Form () {
     }
     
     const handleSelect = (e) => {
+       
         if(values.countries.includes(e.target.value)){
             setValues({
                 ...values,
@@ -47,7 +98,8 @@ function Form () {
         e.preventDefault();
         setValues({
             ...values,
-            countries: values.countries.filter(ct => ct!== e.target.value)
+            countries: []
+
         })
     } 
 
@@ -55,7 +107,7 @@ function Form () {
 
 
     const onSubmit = (e) => {
-        e.preventDefault()
+        
         dispatch(createActivity(values))
         setValues({
             name: "",
@@ -65,46 +117,47 @@ function Form () {
             countries: []
 
         })
+        /* setError("incomplete") */
     }
 
     
     let order = countries.sort((a, b)=> a.name.localeCompare(b.name))
 
     return (
-        <div>
+        <div className="form_container">
         <Nav />
-        <form onSubmit={onSubmit}>
-             <label htmlFor="">Name: </label>
-            <input name="name" value={values.name} onChange={handleChange}/>
-            {/* <label htmlFor="">Difficulty: </label>
-            <input name="difficulty" value={values.difficulty} onChange={handleChange}/> */}
-            <label htmlFor="">Duration: </label>
-            <input name="duration" value={values.duration} onChange={handleChange}/>
-            {/* <label htmlFor="">Season: </label>
-            <input name="season" value={values.season} onChange={handleChange}/>  */}
-            <label>Difficulty</label>
-            <select name="difficulty" onChange={handleChange}>
-               <option value="1">1</option> 
-               <option value="2">2</option> 
-               <option value="3">3</option> 
-               <option value="4">4</option> 
-               <option value="5">5</option> 
+        <h3 className="form_title">Create Activity</h3>
+        <form onSubmit={onSubmit} className="form_form">
+             <label htmlFor="" className="form_label">Name: </label>
+            <input name="name" value={values.name} onChange={(e)=> validateName(e.target.value)} className="form_name" />
+            <label htmlFor="" className="form_label">Duration (days): </label>
+            <input  name="duration" value={values.duration} onChange={(e)=>validateDuration(e.target.value)} className={error==="duration"?"form_duration_error": "form_duration" }/>
+            {error==="duration" ? <span className="form_span">it should be a Number</span> : null}
+            <label className="form_label" >Difficulty</label>
+            <select name="difficulty" onChange={(e)=>validateDifficulty(e.target.value)} className="form_difficulty">
+                <option value="" className="form_option">-</option>
+               <option value="1" className="form_option">1</option> 
+               <option value="2" className="form_option">2</option> 
+               <option value="3" className="form_option">3</option> 
+               <option value="4" className="form_option">4</option> 
+               <option value="5" className="form_option">5</option> 
             </select>
 
-            <label>Season</label>
-            <select name="season" onChange={handleChange}>
-               <option value="-">-</option> 
-               <option value="summer">Summer</option> 
-               <option value="spring">Spring</option> 
-               <option value="autumn">Autumn</option> 
-               <option value="winter">Winter</option> 
+            <label className="form_label">Season</label>
+            <select name="season" onChange={(e)=>validateSeason(e.target.value)} className="form_season">
+               <option value="" className="form_option">-</option> 
+               <option value="Summer" className="form_option">Summer</option> 
+               <option value="Spring" className="form_option">Spring</option> 
+               <option value="Autumn" className="form_option">Autumn</option> 
+               <option value="Winter" className="form_option">Winter</option> 
                
             </select>
+            <label className="form_label_countries">Countries</label>
             
-            <select onChange={handleSelect} name="countries" multiple>
+            <select onChange={handleSelect} name="countries" multiple className="form_countries"> 
                 {
                     
-                    order.map((e,i)=><option key={e.id} value={e.id}>{e.name}</option>)
+                    order.map((e,i)=><option key={e.id} value={e.id} className="form_option_countries">{e.name}</option>)
                 }
             </select>
             <div>
@@ -114,16 +167,19 @@ function Form () {
                         let label= countries.find(x => e===x.id);
                         
                        return(
-                       <p>-{label.name}</p>
+                       <p className="form_country"> -{label.name}</p>
                        )
                        
                        
                     })
             }
             </div>
+            <button  onClick={onClick2}  className="form_button_countries">Reset</button>
+            <button type="submit" disabled={error.length>1} className="form_button">Create</button>
             
-            <button type="submit">Send</button>
+            
         </form>
+                 
         </div>
     )
 }
