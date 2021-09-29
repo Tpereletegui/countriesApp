@@ -75,7 +75,7 @@ export default function Activities () {
                       <h3 className="activities_title">{e.name}</h3>
                       <p className="activities_name"> Difficulty (1 to 5): {e.difficulty}</p>
                       <p className="activities_name">Days: {e.duration}</p>
-                      <p className="activities_name">{e.season}</p>
+                      <p className="activities_season">{e.season}</p>
                        <h4 className="activities_countries">Countries: </h4> {e.countries ? e.countries.map(x=>
                       <Link to={`/detail/${x.id}`} className="activities_link"> <p className="activities_country">-{x.name}</p></Link> ): <p>No countries added</p>}
                     </div>

@@ -2,7 +2,7 @@ const { Country, Activity, Op} = require("../db");
 const axios=require("axios");
  const Data=require("../../countries.json"); 
 
-
+//initial function
 async function data(){
 
      
@@ -21,7 +21,7 @@ async function data(){
       
   }
   
-  
+ //countries order by size and alphabetic order 
 async function getCountriesOrder(req,res,next){
 try {
   let {order} =req.params;
@@ -44,6 +44,7 @@ try {
 }
 
 }
+
 async function getAllCountries(req, res, next) {
   try {
       
@@ -55,8 +56,8 @@ async function getAllCountries(req, res, next) {
   }
 };
 
-
-async function getOneCountry (req, res, next) {
+//find country by name
+/* async function getOneCountry (req, res, next) {
 try {
   const {id} = req.params;
   let country= await Country.findOne({where: {id: id}, include: {model: Activity}});
@@ -65,7 +66,7 @@ try {
 } catch (error) {
   next(error)
 }
-};
+}; */
 
 
 
@@ -75,19 +76,15 @@ async function getCountries(req, res, next) {
         let {page} =req.query;
         let itemsPerPage=10;
         var first=0;
-        var next;
+        
         if(!page) { 
-          
           page = 1;
           
         }
         if(page==1 || !page){
           first=1
         }
-        if(page==2) next=1
-        if(page>2){
-          next=0
-        };
+        
        
         console.log(first)
         if(name !== undefined){
@@ -102,14 +99,14 @@ async function getCountries(req, res, next) {
           return res.json(country); 
         }else {
         Country.findAll()
-         .then(data => res.json(data.slice((itemsPerPage *(page -1)- next), ((itemsPerPage * (page- 1))+ itemsPerPage)- first)));
+         .then(data => res.json(data.slice(itemsPerPage *(page -1), ((itemsPerPage * (page- 1))+ itemsPerPage)- first)));
         }
     } catch (error) {
         next(error);
     }
 };
 
-
+//get country id
 async function getOneCountry (req, res, next) {
   try {
     const {id} = req.params;
@@ -121,24 +118,7 @@ async function getOneCountry (req, res, next) {
   }
 };
 
-/* async function getQuery (req, res, next) {
-  try {
-  
-    const {name} =req.query;
-    const country = await Country.findAll({
-      where: {
-        name: {
-          [Op.iLike]: `%${name}%`
-        }
-      }
-    })
-    console.log("matches;",country);
-    res.json(country); 
 
-  } catch (error) {
-    next (error);
-  }
-}; */
 
 module.exports = { 
   getCountries,

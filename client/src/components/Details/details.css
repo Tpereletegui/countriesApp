@@ -68,6 +68,7 @@
 
 .details_activities_card_name{
     font-size: 20px;
+    color:rgb(1, 80, 80);
     
 }
 
@@ -85,7 +86,8 @@
 .details_card_numbers{
     display: flex;
     justify-content: space-evenly;
-    margin-right: 25px;
+    margin-right: 20px;
+    margin-left: 5px;
 }
 
 .details_card_continent{

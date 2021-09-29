@@ -46,11 +46,6 @@ function reducer(state= initialState, action){
                 ...state,
                 activities: action.payload
             }
-        /* case "CREATE ACTIVITY": 
-                 return {
-                    ...state,
-                     activities: activities.push(action.payload)
-            } */
         default:
             return state
 

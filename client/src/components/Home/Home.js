@@ -24,21 +24,17 @@ function Home() {
         dispatch(getCountries(1))
     }, [dispatch]);  
      
-     function handleChange(e){
+    
+    function handleChange(e){
      if(e.target.value==="all") dispatch(getCountries(1));
      else {
          setOrder(e.target.value);
          setPage(1);
          dispatch(getCountriesOrder(e.target.value, 1))
-    }
-     
-       
+      }   
     } 
-    console.log(order);
-    
-   
 
-     function pages(e) {
+   function pages(e) {
         if(e.target.value==="next"){
             dispatch(getCountriesOrder(order, page + 1));
             setPage(page + 1);
@@ -48,7 +44,6 @@ function Home() {
             setPage(page - 1);
         }
     } 
-    console.log(page);
 
     function handleSelectContinent(e) {
         if(e.target.value==="-") {
@@ -58,8 +53,6 @@ function Home() {
     }
 
     
-    
-
     return (
         
         <div className="contenedor">
@@ -115,19 +108,11 @@ function Home() {
             <div className="buttons">
             <button onClick={pages} value="previous" disabled={page===1} >Previous</button>
             <button onClick={pages} value="next" disabled={countries.length < 9  || countries.length >40} >Next</button>
-            </div>
-             
-            
-            
-           
+            </div>  
         
         </div>
-
-
-    )
-      
-
-   
+        )
+    
 }
 
 

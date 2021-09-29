@@ -95,4 +95,9 @@ display: flex;
     text-decoration-line:underline ;
 }
 
+.activities_season{
+    margin-top:8px;
+    font-size: 18px;
+    font-weight: 500;
+}
 

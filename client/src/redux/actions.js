@@ -65,13 +65,6 @@ export function sortCountriesActivity(activity){
  };
 
 
- /* export function createActivity (values) {
-     return function(dispatch){
-         axios.post("http://localhost:3001/activity", values)
-         .then(response => console.log(response))
-         .catch(e => console.log(e))
-     }
- }; */
 
  export function createActivity (values) {
     return function(dispatch){
@@ -98,13 +91,6 @@ export function getActivities (order ) {
 
 
 
- /* export function sortCountries(order) {
-    return {
-            type: "SORT_COUNTRIES", payload: order
-        }
-
-    } */
-    
         
     
  
