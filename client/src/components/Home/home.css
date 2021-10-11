@@ -82,16 +82,23 @@ select{
 .imagen{
     background-color:#e0e0de;
     background-size: cover;
-    height: 320px;
+    height: 110px;
     width: 300px;
+    margin-bottom: 50px;
+    border-radius:10px;
 }
 
 .img{
     margin-top: 20px;
     height: 120px;
     width: 200px;
-    border-radius: 10px;
+    padding: 0px;
+    border-radius: 15px;
 }
+
+
+
+
 
 .title{
     width: 150px;

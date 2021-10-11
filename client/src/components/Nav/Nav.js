@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useDispatch} from "react-redux";
 import { NavLink} from "react-router-dom";
-import { getCountries, searchCountries } from "../../redux/actions";
+import { getCountries, searchCountries, removeCountries} from "../../redux/actions";
 import "./nav.css";
 import logo from "./map.jpg"
 
@@ -10,6 +10,7 @@ function Nav(){
 	const [input, setInput] =useState("");
 	 const dispatch = useDispatch(); 
 	useEffect(()=>{
+		dispatch(removeCountries())
 		dispatch(getCountries())
 	}, [dispatch])
 	//ACA METER UN USEEFFECT como componentDidMount
@@ -18,6 +19,7 @@ function Nav(){
 		setInput(e.target.value)
 	}
 	const buscar = () => {
+		dispatch(removeCountries())
 		dispatch(searchCountries(input))
 	}
 

@@ -47,9 +47,9 @@ try {
 
 async function getAllCountries(req, res, next) {
   try {
-      
+     
       Country.findAll()
-       .then(data => res.json(data))
+       .then(finalData=> res.json(finalData))
       
   } catch (error) {
       next(error);

@@ -46,6 +46,17 @@ function reducer(state= initialState, action){
                 ...state,
                 activities: action.payload
             }
+
+        case "REMOVE_COUNTRIES":
+            return {
+                ...state,
+                countries:[]
+            }
+        case "REMOVE_COUNTRY" :
+            return {
+                ...state,
+                countryDetail:{}
+            }        
         default:
             return state
 

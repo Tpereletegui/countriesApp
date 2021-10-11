@@ -88,6 +88,18 @@ export function getActivities (order ) {
 } 
 
 
+export function removeCountries() {
+    return {
+        type: "REMOVE_COUNTRIES"
+    }
+}
+
+export function removeCountry() {
+    return {
+        type: "REMOVE_COUNTRY"
+    }
+}
+
 
 
 

@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import Nav from "../Nav/Nav";
 import Activities from "../Activities/Activities";
-import {getCountries, getCountriesOrder, sortCountriesContinent} from "../../redux/actions"; 
+import {getCountries, getCountriesOrder, sortCountriesContinent, removeCountries} from "../../redux/actions"; 
 import "./home.css";
 
 
@@ -13,7 +13,7 @@ function Home() {
     
 
     let countries= useSelector (state => state.countries)
-
+    let history= useHistory();
     const dispatch= useDispatch();
      
     const [page, setPage] = useState(1);
@@ -21,35 +21,54 @@ function Home() {
     
     
        useEffect(()=> {
+        dispatch(removeCountries());
         dispatch(getCountries(1))
     }, [dispatch]);  
      
     
     function handleChange(e){
-     if(e.target.value==="all") dispatch(getCountries(1));
+     if(e.target.value==="all"){ 
+      dispatch(removeCountries())
+      dispatch(getCountries(1));
+      
+    }
      else {
          setOrder(e.target.value);
          setPage(1);
+         dispatch(removeCountries());
          dispatch(getCountriesOrder(e.target.value, 1))
+         
       }   
     } 
 
    function pages(e) {
         if(e.target.value==="next"){
+            window.scrollTo(0, 0)
+            dispatch(removeCountries())
             dispatch(getCountriesOrder(order, page + 1));
             setPage(page + 1);
+            
         }
         else {
+            window.scrollTo(0, 0)
+          dispatch(removeCountries())
             dispatch(getCountriesOrder(order, page - 1));
             setPage(page - 1);
+            
         }
     } 
 
     function handleSelectContinent(e) {
         if(e.target.value==="-") {
+          dispatch(removeCountries())
             dispatch(getCountries(1))
+            
 
-        }else{dispatch(sortCountriesContinent(e.target.value))}
+        }else{
+          dispatch(removeCountries())
+          dispatch(sortCountriesContinent(e.target.value))
+          
+        }
     }
 
     
@@ -88,7 +107,7 @@ function Home() {
                 {console.log(countries)}
                 return (
                     <div className="card" key={i}>
-                        <div>
+                        <div className="imagen">
                       <img width="100px" src={e.image} alt=""  className="img" />
                       </div>
                       <div className="name">

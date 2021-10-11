@@ -1,6 +1,6 @@
 import React from "react";
 import { connect} from "react-redux";
-import {getCountryId } from "../../redux/actions";
+import {getCountryId, removeCountry } from "../../redux/actions";
 import Nav from "../Nav/Nav";
 import "./details.css";
 
@@ -13,6 +13,8 @@ class Details extends React.Component{
         const result= split[2]
         const id=result.toString()
         console.log(id)
+        window.scrollTo(0, 0)
+        this.props.removeCountry();
         this.props.getCountryId(id)
     }
 
@@ -69,7 +71,8 @@ class Details extends React.Component{
 
     function mapDispatchToProps (dispatch) {
         return {
-            getCountryId: (id) => dispatch(getCountryId(id))
+            getCountryId: (id) => dispatch(getCountryId(id)),
+            removeCountry: () => dispatch(removeCountry())
         }
     }
 

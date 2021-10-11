@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {createActivity, getAllCountries} from "../../redux/actions";
+import {createActivity, getAllCountries, removeCountries} from "../../redux/actions";
 import {Link} from "react-router-dom";
 import Nav from "../Nav/Nav";
 import "./form.css";
@@ -11,6 +11,7 @@ function Form () {
     const dispatch= useDispatch();
 
     useEffect(() => {
+         
          dispatch(getAllCountries())
     }, [dispatch]);
 
