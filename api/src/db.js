@@ -10,7 +10,7 @@ const {
 let sequelize =
   process.env.NODE_ENV === "production"
     ? new Sequelize({
-        database: "countries-app-bootcamp",
+        database: DB_NAME,
         dialect: "postgres",
         host: DB_HOST,
         port: 5432,
