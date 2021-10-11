@@ -10,7 +10,7 @@ const {
 let sequelize =
   process.env.NODE_ENV === "production"
     ? new Sequelize({
-        database: "countries",
+        database: DB_NAME,
         dialect: "postgres",
         host: DB_HOST,
         port: 5432,
@@ -32,7 +32,7 @@ let sequelize =
         ssl: true,
       })
     : new Sequelize(
-        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`,
+        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/development`,
         { logging: false, native: false }
       );
 
