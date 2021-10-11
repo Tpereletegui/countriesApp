@@ -27,7 +27,7 @@ try {
   let {order} =req.params;
    let {page} =req.query;7
   if(!page) page=1;
-  const itemsPerPage=10; 
+  const itemsPerPage=9; 
   let first=0;
   if(page==1 || !page){
     first=1;
@@ -38,7 +38,10 @@ try {
   if(order==="desc") orderData= data.sort((a,b)=> b.name.localeCompare(a.name));
   if(order==="larger") orderData= data.sort((a, b)=> b.population - a.population);
   if(order==="smaller") orderData= data.sort((a, b)=> a.population - b.population);
-  res.json( orderData.slice(itemsPerPage *(page -1), ((itemsPerPage * (page- 1))+ itemsPerPage) - first));
+  if(order==="grand") orderData= data.sort((a, b)=> b.area - a.area);
+  if(order==="petit") orderData= data.sort((a, b)=> a.area - b.area);
+  if(order==="Europe" || order==="Americas" || order==="Asia"|| order==="Oceania"|| order==="Africa") orderData = data.filter(x => x.continent===order);
+  res.json( orderData.slice(itemsPerPage *(page -1), (itemsPerPage * (page- 1)) + itemsPerPage));
 } catch (error) {
   next(error)
 }

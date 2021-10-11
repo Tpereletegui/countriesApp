@@ -8,6 +8,8 @@ export function getCountriesOrder(order, page) {
         })
     }
 }
+
+
 export function getAllCountries(page) {
     return function(dispatch) {
         axios.get("http://localhost:3001/countries/all")

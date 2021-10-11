@@ -14,6 +14,7 @@
     right: 3%;
     top: 60px;
     margin-bottom: 30px;
+
 }
 
 
@@ -37,6 +38,9 @@
     
     
 }
+label{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
 .label{
     position: relative;
@@ -46,12 +50,13 @@
     font-size:18px;
     font-weight: 400;
 }
-select{
-    
+.select{
+    width: 120px;
+    height: 60px;
     padding-right: 30px;
     height: 25px;
     font-size: 14px;
-    border-radius: 5px;
+    border-radius: 15px;
     background-color: white;
 }
 
@@ -123,4 +128,8 @@ select{
 .continent{
     position: static;
     margin-left: 0px;
+}
+
+.optgroup{
+  color: #293443;
 }

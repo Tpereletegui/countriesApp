@@ -78,7 +78,34 @@ function Home() {
              <Nav/> 
 
              <div className="filters">
-            <label className="label">Order</label>
+             <label>Filters</label>
+             <select className="select" onChange={handleChange}>
+             <option value="all">All</option>
+                <optgroup className="optgroup" label="Alphabetic">
+                  <option value="asc">A-Z</option>
+                  <option value="desc">Z-A</option>
+                  </optgroup>
+                 <optgroup className="optgroup" label="Population"> 
+                  <option value="larger"> Largest</option>
+                  <option value="smaller"> Smallest</option>
+                  </optgroup>
+                <optgroup className="optgroup" label="Area"> 
+                  <option value="grand"> Largest</option>
+                  <option value="petit"> Smallest</option>
+                  </optgroup>
+                  
+                <optgroup label="Continent">
+                  <option value="-">-</option>
+                  <option value="Europe">Europe</option>
+                 <option value="Americas">Americas</option>
+                 <option value="Asia">Asia</option>
+                  <option value="Africa">Africa</option>
+                  <option value="Oceania">Oceania</option>
+                </optgroup>
+
+             </select>
+
+            {/*<label className="label">Order</label>
             <select  onChange={handleChange} >
                 
                 <option value="all">All</option>
@@ -86,8 +113,7 @@ function Home() {
                 <option value="desc">Z-A</option>
                 <option value="larger">Population: Largest</option>
                 <option value="smaller">Population: Smallest</option>
-                
-            </select>
+             </select>
             <label className="label">Continent</label>
             <select  onChange={handleSelectContinent} > 
                 <option value="-">-</option>
@@ -96,7 +122,7 @@ function Home() {
                 <option value="Asia">Asia</option>
                 <option value="Africa">Africa</option>
                 <option value="Oceania">Oceania</option>
-            </select>
+            </select> */}
             </div>
             
 
