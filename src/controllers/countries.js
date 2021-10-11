@@ -1,12 +1,29 @@
 const { Country, Activity, Op} = require("../db");
 const axios=require("axios");
- const Data=require("../../countries.json"); 
+  const Data=require("../../countries.json"); 
+ 
 
 //initial function
 async function data(){
+  axios.get("https://restcountries.com/v2/all")
+  .then( Datos => { 
+    console.log(Datos.data.length)
+  for(var i=0;i< Datos.data.length;i++){
+    Country.create({
+      id: Datos.data[i].alpha3Code,
+      name: Datos.data[i].name,
+      image: Datos.data[i].flags.svg,
+      continent: Datos.data[i].region,
+      capital: Datos.data[i].capital,
+      subregion: Datos.data[i].subregion,
+      area: Datos.data[i].area,
+      population: Datos.data[i].population,
+    })
+  }})
+  
 
      
-       for(var i=0; i<Data.length; i++) {
+       /*for(var i=0; i<Data.length; i++) {
         Country.create({
         id: Data[i].alpha3Code,
         name: Data[i].name,
@@ -17,7 +34,7 @@ async function data(){
         area: Data[i].area,
         population: Data[i].population 
       }) 
-    } 
+    }  */
       
   }
   

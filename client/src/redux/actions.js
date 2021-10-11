@@ -1,8 +1,12 @@
- import axios from "axios";
+import axios from "axios";
+import dotenv from "dotenv";
+dotenv.config();
+
+axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
 export function getCountriesOrder(order, page) {
     return function(dispatch) {
-        axios.get("http://localhost:3001/countries/"+ order + "?page=" + page)
+        axios.get("/countries/"+ order + "?page=" + page)
         .then(response => {
             return dispatch({type: "GET_COUNTRIES_ORDER", payload: response.data})
         })
@@ -12,7 +16,7 @@ export function getCountriesOrder(order, page) {
 
 export function getAllCountries(page) {
     return function(dispatch) {
-        axios.get("http://localhost:3001/countries/all")
+        axios.get("/countries/all")
         .then(response => {
             return dispatch({type: "GET_ALL_COUNTRIES", payload: response.data})
         })
@@ -30,7 +34,7 @@ export function sortCountriesContinent(continent){
 
 export function sortCountriesActivity(activity){
     return function(dispatch) {
-        axios.get("http://localhost:3001/countries/all")
+        axios.get("/countries/all")
         .then(response => {
             return dispatch({type: "SORT_COUNTRIES_ACTIVITY", payload: response.data, activity: activity})
         })
@@ -39,7 +43,7 @@ export function sortCountriesActivity(activity){
 
  export function getCountries(page) {
      return function(dispatch) {
-         axios.get("http://localhost:3001/countries?page="+ page)
+         axios.get("/countries?page="+ page)
          .then(response => {
              return dispatch({type: "GET_COUNTRIES", payload: response.data})
          })
@@ -48,7 +52,7 @@ export function sortCountriesActivity(activity){
 
  export function searchCountries(name) {
      return function(dispatch) {
-         axios.get("http://localhost:3001/countries?name=" + name)
+         axios.get("/countries?name=" + name)
          .then(response => {
              dispatch({type: "GET_COUNTRY_NAME", payload: response.data})
          })
@@ -59,7 +63,7 @@ export function sortCountriesActivity(activity){
 
  export function getCountryId(id) {
      return function(dispatch) {
-         axios.get("http://localhost:3001/country/"+id)
+         axios.get("/country/"+id)
          .then(response => dispatch({
              type: "GET_COUNTRY_ID", payload: response.data
          }))
@@ -70,7 +74,7 @@ export function sortCountriesActivity(activity){
 
  export function createActivity (values) {
     return function(dispatch){
-        axios.post("http://localhost:3001/activity", values)
+        axios.post("/activity", values)
         .then(response =>dispatch({
             type: "CREATE_ACTIVITY", payload: response.data
         }))
@@ -80,7 +84,7 @@ export function sortCountriesActivity(activity){
 
 export function getActivities (order ) {
     return function (dispatch) {
-        axios.get("http://localhost:3001/activities?order=" + order)
+        axios.get("/activities?order=" + order)
         .then(response => {
             console.log(response)
              dispatch({
