@@ -34,14 +34,13 @@ if(process.env.NODE_ENV === "production") {
 console.log(__dirname,"client/build")
 
 // Syncing all the models at once.
-conn.sync({force: false}).then(async function() {
+conn.sync({force: true}).then(async function() {
   server.listen(PORT, async () => {
     console.log("listening at port " + PORT);
-    let checkdata =await Country.findAll();
-    if(checkdata.length <= 1){
+    
       data();
       
-    }
+    
     // eslint-disable-line no-console
   });
 });
