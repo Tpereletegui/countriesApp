@@ -130,7 +130,7 @@ function Home() {
             <div className="cards"> 
              {
             countries.length?
-            console.log(coountries);
+            console.log(countries)
             {/*countries.map((e, i)=>{
                 return (
                     <div className="card" key={i}>
