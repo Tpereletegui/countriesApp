@@ -26,7 +26,7 @@ export function getAllCountries(page) {
 
 export function sortCountriesContinent(continent){
     return function(dispatch) {
-        axios.get("http://localhost:3001/countries/all")
+        axios.get("/countries/all")
         .then(response => {
             return dispatch({type: "SORT_COUNTRIES_CONTINENT", payload: response.data, continent: continent})
         })

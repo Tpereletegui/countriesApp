@@ -22,7 +22,6 @@ function Home() {
     
     
        useEffect(()=> {
-        dispatch(removeCountries());
         dispatch(getCountries(1))
     }, [dispatch]);  
      
