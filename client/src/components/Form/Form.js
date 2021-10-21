@@ -4,6 +4,7 @@ import {createActivity, getAllCountries, removeCountries} from "../../redux/acti
 import {Link} from "react-router-dom";
 import Nav from "../Nav/Nav";
 import "./form.css";
+import { Button } from "@mui/material";
 
 
 function Form () {
@@ -175,8 +176,10 @@ function Form () {
                     })
             }
             </div>
-            <button  onClick={onClick2}  className="form_button_countries">Reset</button>
-            <button type="submit" disabled={error.length>1} className="form_button">Create</button>
+            
+            <Button size="small" onClick={onClick2} style={{backgroundColor: '#000000', color: '#FFFFFF', marginLeft: '158px', marginBottom: '15px', marginTop:'15px', height:'25px', width:'20px'}}>Reset</Button>
+            <Button type="submit" disabled={error.length>1}  style={{backgroundColor: '#FCBE40', color: '#000000', marginLeft: '150px',marginTop:'15px' }}>Create</Button>
+        
             
             
         </form>

@@ -4,6 +4,7 @@ import Nav from "../Nav/Nav";
 import { getActivities, getCountries} from "../../redux/actions";
 import { Link } from "react-router-dom";
 import "./activities.css";
+import { Button } from "@mui/material";
 
 
 export default function Activities () {
@@ -61,8 +62,8 @@ export default function Activities () {
                     <option value="Winter">Winter</option>
                     <option value="Autumn">Autumn</option>   
                     
-            </select>
-            <Link to='/create'><button className="activities_button">Add New</button></Link>
+            </select>'
+                        <Link to='/create'><Button style={{backgroundColor: '#000000', color: '#FFFFFF', marginLeft: '15px'}} >Add </Button></Link>
             </div>
             <div className="activities_cards">
             {

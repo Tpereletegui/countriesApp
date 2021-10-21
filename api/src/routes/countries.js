@@ -2,9 +2,6 @@ const {Router} =require ("express");
 const {getCountries, getOneCountry, getCountriesOrder, getAllCountries} =require ("../controllers/countries");
 const router= Router();
 
-router.get("/", function(){
-	res.json("jesus")
-});
 router.get("/countries", getCountries);
 router.get("/countries/all",getAllCountries )
 router.get("/country/:id", getOneCountry)

@@ -5,6 +5,7 @@ import Nav from "../Nav/Nav";
 import Activities from "../Activities/Activities";
 import {getCountries, getCountriesOrder, sortCountriesContinent, removeCountries} from "../../redux/actions"; 
 import "./home.css";
+import { Button,  Menu, MenuItem } from "@mui/material";
 
 
 
@@ -130,8 +131,8 @@ function Home() {
              {
             countries.length?
             countries.map((e, i)=>{
-                {console.log(countries)}
                 return (
+                {console.log(countries)}
                     <div className="card" key={i}>
                         <div className="imagen">
                       <img width="100px" src={e.image} alt=""  className="img" />
@@ -151,10 +152,12 @@ function Home() {
                 </div>
             
             <div className="buttons">
-            <button onClick={pages} value="previous" disabled={page===1} >Previous</button>
+            {/*<button onClick={pages} value="previous" disabled={page===1} >Previous</button>
             <button onClick={pages} value="next" disabled={countries.length < 9  || countries.length >40} >Next</button>
-            </div>  
-        
+            </div>  */}
+            <Button onClick={pages} value="previous" disabled={page===1} style={{backgroundColor: '#FCBE40', color: '#000000'}} >Previous</Button>
+            <Button onClick={pages} value="next" disabled={countries.length < 9  || countries.length >40} style={{backgroundColor: '#FCBE40', color: '#000000'}}>Next</Button>
+            </div>
         </div>
         )
     

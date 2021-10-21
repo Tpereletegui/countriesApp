@@ -36,34 +36,34 @@ async function data(){
       }) 
     }  */
       
-  }
+  };
   
  //countries order by size and alphabetic order 
 async function getCountriesOrder(req,res,next){
-try {
-  let {order} =req.params;
-   let {page} =req.query;7
-  if(!page) page=1;
-  const itemsPerPage=9; 
-  let first=0;
-  if(page==1 || !page){
-    first=1;
-  }
-  let data= await Country.findAll();
-  let orderData=[];
-  if(order==="asc") orderData =data.sort((a,b)=> a.name.localeCompare(b.name));
-  if(order==="desc") orderData= data.sort((a,b)=> b.name.localeCompare(a.name));
-  if(order==="larger") orderData= data.sort((a, b)=> b.population - a.population);
-  if(order==="smaller") orderData= data.sort((a, b)=> a.population - b.population);
-  if(order==="grand") orderData= data.sort((a, b)=> b.area - a.area);
-  if(order==="petit") orderData= data.sort((a, b)=> a.area - b.area);
-  if(order==="Europe" || order==="Americas" || order==="Asia"|| order==="Oceania"|| order==="Africa") orderData = data.filter(x => x.continent===order);
-  res.json( orderData.slice(itemsPerPage *(page -1), (itemsPerPage * (page- 1)) + itemsPerPage));
-} catch (error) {
-  next(error)
-}
+  try {
+    let {order} =req.params;
+     let {page} =req.query;7
+    if(!page) page=1;
+    const itemsPerPage=9; 
+    let first=0;
+    if(page==1 || !page){
+      first=1;
+    }
+    let data= await Country.findAll();
+    let orderData=[];
+    if(order==="asc") orderData =data.sort((a,b)=> a.name.localeCompare(b.name));
+    if(order==="desc") orderData= data.sort((a,b)=> b.name.localeCompare(a.name));
+    if(order==="larger") orderData= data.sort((a, b)=> b.population - a.population);
+    if(order==="smaller") orderData= data.sort((a, b)=> a.population - b.population);
+    if(order==="grand") orderData= data.sort((a, b)=> b.area - a.area);
+    if(order==="petit") orderData= data.sort((a, b)=> a.area - b.area);
+    if(order==="Europe" || order==="Americas" || order==="Asia"|| order==="Oceania"|| order==="Africa") orderData = data.filter(x => x.continent===order);
+    res.json( orderData.slice(itemsPerPage *(page -1), (itemsPerPage * (page- 1)) + itemsPerPage));
+    } catch (error) {
+    next(error)
+    }
 
-}
+};
 
 async function getAllCountries(req, res, next) {
   try {

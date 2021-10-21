@@ -8,6 +8,7 @@ export function getCountriesOrder(order, page) {
     return function(dispatch) {
         axios.get("/countries/"+ order + "?page=" + page)
         .then(response => {
+            console.log(response)
             return dispatch({type: "GET_COUNTRIES_ORDER", payload: response.data})
         })
     }

@@ -3,7 +3,8 @@ import { useDispatch} from "react-redux";
 import { NavLink} from "react-router-dom";
 import { getCountries, searchCountries, removeCountries} from "../../redux/actions";
 import "./nav.css";
-import logo from "./map.jpg"
+import logo from "./map.jpg";
+import { Button, TextField } from "@mui/material";
 
 
 function Nav(){
@@ -31,8 +32,9 @@ function Nav(){
 			
 		<div className="searchbar">
 		
-		<input type="text" placeholder="Search Your Country" onChange={handleInput}  value={input} />
-		<button onClick={buscar}>Search</button>
+
+		 <input type="text" placeholder='Country...' onChange={handleInput}  value={input}/>
+		<Button onClick={buscar} style={{backgroundColor: '#FCBE40', color: '#000000'}}>Search</Button>
 		
 		</div>
 		<div className="links">
