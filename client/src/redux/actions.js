@@ -1,9 +1,8 @@
 import axios from "axios";
-import dotenv from "dotenv";
-dotenv.config();
 
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
+
+ 
 export function getCountriesOrder(order, page) {
     return function(dispatch) {
         axios.get("/countries/"+ order + "?page=" + page)
