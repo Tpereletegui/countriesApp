@@ -34,7 +34,7 @@ if(process.env.NODE_ENV === "production") {
 console.log(__dirname,"client/build")
 
 // Syncing all the models at once.
-conn.sync({force: true}).then(async function() {
+conn.sync({force: false}).then(async function() {
   server.listen(PORT, async () => {
     console.log("listening at port " + PORT);
     
