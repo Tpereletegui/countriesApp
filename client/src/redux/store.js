@@ -3,6 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from "redux-thunk" ;
 import reducer from "./reducer";
 import dotenv from "dotenv";
+import axios from "axios";
 dotenv.config();
 axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
