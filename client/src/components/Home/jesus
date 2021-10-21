@@ -1,0 +1,17 @@
+countries.length?
+            console.log(countries)
+            countries.map((e, i)=>{
+                return (
+                    <div className="card" key={i}>
+                        <div className="imagen">
+                      <img width="100px" src={e.image} alt=""  className="img" />
+                      </div>
+                      <div className="name">
+                      <NavLink to={`/detail/${e.id}`} className="title"> <p className="title">{e.name}</p> </NavLink>
+                      </div> 
+                      <p className="continent">{e.continent}</p>
+                  </div>  
+                )}): 
+                    <div className="imagen">
+                        <p className="fail">Countries failed to load, please select a filter o reload the website</p>
+                    </div>
