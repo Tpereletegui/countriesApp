@@ -130,7 +130,8 @@ function Home() {
             <div className="cards"> 
              {
             countries.length?
-            countries.map((e, i)=>{
+            console.log(coountries);
+            {/*countries.map((e, i)=>{
                 return (
                     <div className="card" key={i}>
                         <div className="imagen">
@@ -141,7 +142,7 @@ function Home() {
                       </div> 
                       <p className="continent">{e.continent}</p>
                   </div>  
-                )}): 
+                )})*/}: 
                     <div className="imagen">
                         <p className="fail">Countries failed to load, please select a filter o reload the website</p>
                     </div>
