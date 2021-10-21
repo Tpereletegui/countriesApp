@@ -132,7 +132,6 @@ function Home() {
             countries.length?
             countries.map((e, i)=>{
                 return (
-                {console.log(countries)}
                     <div className="card" key={i}>
                         <div className="imagen">
                       <img width="100px" src={e.image} alt=""  className="img" />
