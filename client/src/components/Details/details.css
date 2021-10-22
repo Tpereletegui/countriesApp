@@ -1,5 +1,5 @@
 .details_container{
-    background-color: white;
+    background-color: #393E46;
     background-size: cover;
     position:relative;
     top:0px;
@@ -9,7 +9,7 @@
 }
 
 .details_card{
-    background-color: #e0e0de;
+    background-color: #EEEEEE;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -47,10 +47,11 @@
     margin-top: 130px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 28px;
+    color: #EEEEEE;
 }
 
 .details_activities_card{
-    background-color: #e0e0de;
+    background-color: #EEEEEE ;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border-radius: 10px;
     display: flex;
@@ -68,12 +69,12 @@
 
 .details_activities_card_name{
     font-size: 20px;
-    color:rgb(1, 80, 80);
+    color:#00ADB5;
     
 }
 
 .details_card_name{
-    color:rgb(1, 80, 80);
+    color:#222831;
 }
 
 .details_card_names{
@@ -94,4 +95,9 @@
     font-size: 19px;
     margin-bottom: 25px;
     font-weight: 600;
+    color: #393E46
+}
+
+b{
+    color: #393E46
 }

@@ -75,7 +75,7 @@ function Home() {
     return (
         
         <div className="contenedor">
-             <Nav/> 
+             <Nav className="navbar"/> 
 
              <div className="filters">
              <label>Filters</label>
@@ -153,8 +153,8 @@ function Home() {
             {/*<button onClick={pages} value="previous" disabled={page===1} >Previous</button>
             <button onClick={pages} value="next" disabled={countries.length < 9  || countries.length >40} >Next</button>
             </div>  */}
-            <Button onClick={pages} value="previous" disabled={page===1} style={{backgroundColor: '#FCBE40', color: '#000000'}} >Previous</Button>
-            <Button onClick={pages} value="next" disabled={countries.length < 9  || countries.length >40} style={{backgroundColor: '#FCBE40', color: '#000000'}}>Next</Button>
+            <Button onClick={pages} value="previous" disabled={page===1} style={{backgroundColor: '#00ADB5', color: '#000000'}} >Previous</Button>
+            <Button onClick={pages} value="next" disabled={countries.length < 9  || countries.length >40} style={{backgroundColor: '#00ADB5', color: '#000000'}}>Next</Button>
             </div>
         </div>
         )

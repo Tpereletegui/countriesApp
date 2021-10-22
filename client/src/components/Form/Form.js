@@ -177,8 +177,8 @@ function Form () {
             }
             </div>
             
-            <Button size="small" onClick={onClick2} style={{backgroundColor: '#000000', color: '#FFFFFF', marginLeft: '158px', marginBottom: '15px', marginTop:'15px', height:'25px', width:'20px'}}>Reset</Button>
-            <Button type="submit" disabled={error.length>1}  style={{backgroundColor: '#FCBE40', color: '#000000', marginLeft: '150px',marginTop:'15px' }}>Create</Button>
+            <Button size="small" onClick={onClick2} style={{backgroundColor: '#222831', color: '#EEEEEE', marginLeft: '158px', marginBottom: '15px', marginTop:'15px', height:'25px', width:'20px'}}>Reset</Button>
+            <Button type="submit" disabled={error.length>1}  style={{backgroundColor: '#00ADB5', color: '#000000', marginLeft: '150px',marginTop:'15px' }}>Create</Button>
         
             
             

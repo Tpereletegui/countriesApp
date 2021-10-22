@@ -1,7 +1,8 @@
 .contenedor{
-    background-color: #e0e0de;
+    background-color: #393E46;
     background-size: cover;
-    position:relative;
+    position:absolute;
+    height: 250px;
     top:0px;
     right:0px;
     bottom:0px;
@@ -9,11 +10,14 @@
     
 }
 
+
+
 .filters{
     position: relative;
     right: 3%;
     top: 60px;
     margin-bottom: 30px;
+    color: #EEEEEE;
 
 }
 
@@ -65,11 +69,11 @@ label{
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 90px;
- 
   bottom: 5px;
 }
 
 .card{
+    background-color: #EEEEEE;
     display: flex;
     flex-direction: column;
     height: max-content;
@@ -77,19 +81,22 @@ label{
     margin:40px;
     margin-bottom: 10px;
     bottom: 100px;
+    border-radius: 15px;
     
 }
 
 .fail{
     margin-top: 100px;
+    color: #EEEEEE;
+    margin-left: 100px;
 }
 
 .imagen{
-    background-color:#e0e0de;
+    background-color:#EEEEEE;
     background-size: cover;
-    height: 110px;
+    height: 80px;
     width: 300px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     border-radius:10px;
 }
 
@@ -111,10 +118,10 @@ label{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 25px;
     margin-left: 70px;
-    margin-top: 10px;
+    
     margin-bottom: 15px;
-    color: #293443;
-    color: rgb(1, 80, 80);
+    color: #393E46;
+   
     
 
 }

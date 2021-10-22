@@ -63,7 +63,7 @@ export default function Activities () {
                     <option value="Autumn">Autumn</option>   
                     
             </select>'
-                        <Link to='/create'><Button style={{backgroundColor: '#000000', color: '#FFFFFF', marginLeft: '15px'}} >Add </Button></Link>
+                       
             </div>
             <div className="activities_cards">
             {
@@ -80,9 +80,12 @@ export default function Activities () {
                        <h4 className="activities_countries">Countries: </h4> {e.countries ? e.countries.map(x=>
                       <Link to={`/detail/${x.id}`} className="activities_link"> <p className="activities_country">-{x.name}</p></Link> ): <p>No countries added</p>}
                     </div>
-                )}): <p>There are not tourist activities registered</p>
+                )}): <p className="fail">There are not tourist activities registered</p>
             
             }
+            </div>
+            <div className="add-new">
+             <Link to='/create'><Button style={{backgroundColor: '#00ADB5', color: '#000000', marginLeft: '15px', textDecoration: 'none', marginBottom: '40px;'}} >Add </Button></Link>
             </div>
         </div>
     )

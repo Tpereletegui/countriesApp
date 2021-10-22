@@ -6,6 +6,8 @@ import "./nav.css";
 import logo from "./map.jpg";
 import { Button, TextField } from "@mui/material";
 
+import {Icon} from "@mdi/react";
+
 
 function Nav(){
 	const [input, setInput] =useState("");
@@ -34,7 +36,8 @@ function Nav(){
 		
 
 		 <input type="text" placeholder='Country...' onChange={handleInput}  value={input}/>
-		<Button onClick={buscar} style={{backgroundColor: '#FCBE40', color: '#000000'}}>Search</Button>
+		<Button onClick={buscar} style={{backgroundColor: '#00ADB5', color: '#000000'}}>Search </Button>
+
 		
 		</div>
 		<div className="links">

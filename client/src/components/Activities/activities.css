@@ -1,5 +1,5 @@
 .activities_container{
-  background-color: #e0e0de;
+  background-color: #393E46;
   background-size: cover;
   position:relative;
   top:0px;
@@ -10,20 +10,26 @@
 
 .activities_filters{
     position: relative;
-    left: 33%;
     display: flex;
-    margin-top: 30px;
+    justify-content: center;
+    margin-top: 60px;
     flex-direction:row;
     color: black;
     
 }
 
 label{
+    color:#EEEEEE;
     margin-top: 5px;
     margin-right: 10px;
     margin-left: 10px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
+}
+
+.fail{
+  color:#EEEEEE;
+  margin-right: 100px;
 }
 
 .activities_button{
@@ -33,7 +39,8 @@ label{
 }
 
 .activities_select{
-    height: 30px;
+    height: 25px;
+    border-radius: 10px;
 }
 
 .activities_cards{
@@ -46,7 +53,7 @@ display: flex;
 }
 
 .activities_card{
-    background-color: white;
+    background-color: #EEEEEE;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -58,6 +65,7 @@ display: flex;
     bottom: 100px;
     border-radius: 20px;
     box-shadow: 1px 1px  0px 0px black;
+    margin-bottom: 25px;
     
 }
 
@@ -65,6 +73,7 @@ display: flex;
     text-decoration-line:underline ;
     margin-bottom: 5px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#222831;
 }
 
 .activities_country{
@@ -72,6 +81,7 @@ display: flex;
     margin-top: 8px;
     margin-bottom: 0px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #393e46;
 }
 
 .activities_name{
@@ -83,7 +93,7 @@ display: flex;
 .activities_title{
     margin-top: 10px;
     font-size: 20px;
-    color: rgb(1, 80, 80);
+    color: #00ADB5;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -99,5 +109,12 @@ display: flex;
     margin-top:8px;
     font-size: 18px;
     font-weight: 500;
+    color: #393E46;
 }
 
+
+.add-new{
+  margin-bottom: 200px;
+  margin-top: 0px;
+  padding-top: 0px;
+}

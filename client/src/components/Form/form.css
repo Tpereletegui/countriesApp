@@ -1,5 +1,5 @@
 .form_container{
-    background-color: #e0e0de;
+    background-color: #393E46;
     background-size: cover;  
     position:relative;
     top:0px;
@@ -10,7 +10,7 @@
 
 
 .form_form{
-    background-color: white;
+    background-color: #EEEEEE;
     border-radius: 10px;
     position: relative;
     display: flex;
@@ -27,6 +27,7 @@
 }
 
 .form_label{
+    color: #393E46;
     margin-top: 50px;
     margin-bottom: 15px;
     font-weight: 600;
@@ -37,6 +38,7 @@
     margin-left:90px;
     border-radius: 5px;
     border: black 0.5px solid;
+    color: #393E46;
 }
 
 .form_duration{
@@ -44,23 +46,27 @@
     margin-left: 140px;
     border-radius: 5px;
     border: black 0.5px solid;
+    color: #393E46;
 }
 
 .form_difficulty{
     width: 100px;
     margin-left: 145px;
+    color: #393E46;
 }
 
 .form_season{
     width: 100px;
     margin-left: 145px;
+    color: #393E46;
 }
 
 .form_countries{
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 95px;
     height: 150px;
     width: 200px;
+    color: #222831;
 
 }
 
@@ -102,7 +108,7 @@
     font-size: 40px;
     margin-bottom: 25px;
     margin-top: 80px;
-    color:rgb(1, 80, 80);
+    color:#EEEEEE;
 }
 
 .form_label_countries{
