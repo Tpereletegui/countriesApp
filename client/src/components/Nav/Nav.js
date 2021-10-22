@@ -35,6 +35,7 @@ function Nav(){
 		<div className="searchbar">
 		
 
+		 
 		 <input type="text" placeholder='Country...' onChange={handleInput}  value={input}/>
 		<Button onClick={buscar} style={{backgroundColor: '#00ADB5', color: '#000000'}}>Search </Button>
 

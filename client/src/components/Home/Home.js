@@ -22,7 +22,7 @@ function Home() {
     
     
        useEffect(()=> {
-        dispatch(getCountriesOrder("larger"))
+        dispatch(getCountries(1))
     }, [dispatch]);  
      
     
@@ -141,7 +141,7 @@ function Home() {
                       <p className="continent">{e.continent}</p>
                   </div>  
                 )}): 
-                    <div className="imagen">
+                    <div className="fail">
                         <p className="fail">Countries failed to load, please select a filter o reload the website</p>
                     </div>
                 
@@ -153,8 +153,8 @@ function Home() {
             {/*<button onClick={pages} value="previous" disabled={page===1} >Previous</button>
             <button onClick={pages} value="next" disabled={countries.length < 9  || countries.length >40} >Next</button>
             </div>  */}
-            <Button onClick={pages} value="previous" disabled={page===1} style={{backgroundColor: '#00ADB5', color: '#000000', marginTop: '35px'}} >Previous</Button>
-            <Button onClick={pages} value="next" disabled={countries.length < 9  || countries.length >40} style={{backgroundColor: '#00ADB5', color: '#000000', marginTop: '35px'}}>Next</Button>
+            <Button onClick={pages} value="previous" disabled={page===1} style={{backgroundColor: '#00ADB5', color: '#000000'}} >Previous</Button>
+            <Button onClick={pages} value="next" disabled={countries.length < 9  || countries.length >40} style={{backgroundColor: '#00ADB5', color: '#000000'}}>Next</Button>
             </div>
         </div>
         )
