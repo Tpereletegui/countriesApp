@@ -132,13 +132,14 @@ function Home() {
             countries.map((e, i)=>{
                 return (
                     <div className="card" key={i}>
-                        <div className="imagen">
+                     <div className="imagen">
                       <img width="100px" src={e.image} alt=""  className="img" />
                       </div>
                       <div className="name">
                       <NavLink to={`/detail/${e.id}`} className="title"> <p className="title">{e.name}</p> </NavLink>
                       </div> 
                       <p className="continent">{e.continent}</p>
+                      
                   </div>  
                 )}): 
                     <div className="fail">
@@ -150,9 +151,8 @@ function Home() {
                 </div>
             
             <div className="buttons">
-            {/*<button onClick={pages} value="previous" disabled={page===1} >Previous</button>
-            <button onClick={pages} value="next" disabled={countries.length < 9  || countries.length >40} >Next</button>
-            </div>  */}
+            
+              
             <Button onClick={pages} value="previous" disabled={page===1} style={{backgroundColor: '#00ADB5', color: '#000000'}} >Previous</Button>
             <Button onClick={pages} value="next" disabled={countries.length < 9  || countries.length >40} style={{backgroundColor: '#00ADB5', color: '#000000'}}>Next</Button>
             </div>

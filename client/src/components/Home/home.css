@@ -39,7 +39,7 @@
     margin-top: 100px;
     margin-left: 500px;
     margin-right: 500px;
-    margin-bottom: 0px;
+    margin-bottom: 30px;
     
     
 }
@@ -74,7 +74,7 @@ label{
 }
 
 .card{
-    background-color: #EEEEEE;
+    background-color: #393E46;
     display: flex;
     flex-direction: column;
     height: max-content;
@@ -83,8 +83,11 @@ label{
     margin-bottom: 10px;
     bottom: 100px;
     border-radius: 15px;
+    box-shadow: 30px 40px 8px #222831;
     
 }
+
+
 
 .fail{
     margin-top: 100px;
@@ -94,20 +97,22 @@ label{
 }
 
 .imagen{
-    background-color:#EEEEEE;
-    background-size: cover;
+    background-color:#393E46;
+    margin-top: 15px;
     height: 80px;
     width: 300px;
     margin-bottom: 10px;
     border-radius:10px;
+
 }
 
 .img{
-    margin-top: 20px;
+    margin-top: 25px;
     height: 120px;
     width: 200px;
     padding: 0px;
     border-radius: 15px;
+    
 }
 
 
@@ -120,9 +125,9 @@ label{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 25px;
     margin-left: 70px;
-    
+    margin-top: 25px;
     margin-bottom: 15px;
-    color: #393E46;
+    color: #EEEEEE;
    
     
 
@@ -137,8 +142,13 @@ label{
 .continent{
     position: static;
     margin-left: 0px;
+    color: #EEEEEE
 }
 
 .optgroup{
   color: #293443;
+}
+
+.name{
+    margin-top: 15px;
 }

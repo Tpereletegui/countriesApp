@@ -10,12 +10,12 @@ const {
 let sequelize =
   process.env.NODE_ENV === "production"
     ? new Sequelize({
-        database: DB_NAME,
+        database: DB_NAME || 'countries',
         dialect: "postgres",
-        host: DB_HOST,
+        host: DB_HOST || 'localhost',
         port: 5432,
-        username: DB_USER,
-        password: DB_PASSWORD,
+        username: DB_USER || 'tomas',
+        password: DB_PASSWORD || 'chapapapa',
         pool: {
           max: 3,
           min: 1,
@@ -32,7 +32,7 @@ let sequelize =
         ssl: true,
       })
     : new Sequelize(
-        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`,
+        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST/countries`,
         { logging: false, native: false }
       );
 
