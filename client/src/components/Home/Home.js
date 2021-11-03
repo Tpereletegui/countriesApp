@@ -22,6 +22,7 @@ function Home() {
     
     
        useEffect(()=> {
+        dispatch(removeCountries())
         dispatch(getCountries(1))
     }, [dispatch]);  
      
@@ -132,7 +133,7 @@ function Home() {
             countries.map((e, i)=>{
                 return (
                     <div className="card" key={i}>
-                     <div className="imagen">
+                     <div >
                       <img width="100px" src={e.image} alt=""  className="img" />
                       </div>
                       <div className="name">

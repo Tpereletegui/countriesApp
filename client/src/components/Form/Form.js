@@ -23,6 +23,7 @@ function Form () {
         difficulty: "",
         duration: "",
         season: "",
+        image: "",
         countries: [] 
     })
 
@@ -97,13 +98,15 @@ function Form () {
         }
     }
     const onClick2= e => {
-        e.preventDefault();
+       
         setValues({
             ...values,
             countries: []
 
         })
     } 
+
+    
 
     
 
@@ -116,8 +119,8 @@ function Form () {
             difficulty:"",
             duration:"",
             season: "",
+            image:"",
             countries: []
-
         })
         /* setError("incomplete") */
     }

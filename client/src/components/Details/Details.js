@@ -3,6 +3,7 @@ import { connect} from "react-redux";
 import {getCountryId, removeCountry } from "../../redux/actions";
 import Nav from "../Nav/Nav";
 import "./details.css";
+import Fondo from "../../fondo.png";
 
 
 class Details extends React.Component{
@@ -27,15 +28,15 @@ class Details extends React.Component{
                         <img src={this.props.countryDetail.image} alt={this.props.countryDetail.name} className="details_card_image"/>
                         <h1 className="details_card_name">{this.props.countryDetail.name}</h1>
                         <p className="details_card_continent">{this.props.countryDetail.continent}</p>
-                        <p><b>Capital:</b> {this.props.countryDetail.capital}</p>
-                        <p><b>Subregion:</b> {this.props.countryDetail.subregion}</p>
+                        <p className="details_card_p"><b>Capital:</b> {this.props.countryDetail.capital}</p>
+                        <p className="details_card_p"><b>Subregion:</b> {this.props.countryDetail.subregion}</p>
                     <div className="details_card_names">
                         <p><b>Area:</b> </p>
                         <p><b>Population:</b> </p>
                         </div>
                         <div className="details_card_numbers">
-                        <p>{this.props.countryDetail.area}</p>
-                        <p>{this.props.countryDetail.population}</p>
+                        <p className="details_card_p">{this.props.countryDetail.area}</p>
+                        <p className="details_card_p">{this.props.countryDetail.population}</p>
                     </div>
                     </div>
                         <h3 className="details_activities_title">Activities</h3>
@@ -45,6 +46,7 @@ class Details extends React.Component{
                            
                            <div className="details_activities_card">
                                  <h4 className="details_activities_card_name" >{x.name.toUpperCase()}</h4>
+                                 <img className="imagen" src={Fondo} alt="" />
                                  <p className="details_activities_card_duration"> <b>Duration:</b> {x.duration} Days </p>
                                  <p className="details_activities_card_difficulty"><b>Difficulty:</b> {x.difficulty} </p>
                                  <p className="details_activities_card_season"><b>Season:</b> {x.season}</p>

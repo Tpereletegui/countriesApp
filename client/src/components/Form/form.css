@@ -10,7 +10,7 @@
 
 
 .form_form{
-    background-color: #EEEEEE;
+    background-color: #293443;
     border-radius: 10px;
     position: relative;
     display: flex;
@@ -22,12 +22,13 @@
     margin-bottom: 10px;
     margin-left: 33%;
     bottom: 100px;
+    box-shadow: 30px 40px 8px #222831;
     
 
 }
 
 .form_label{
-    color: #393E46;
+    color: #EEEEEE;
     margin-top: 50px;
     margin-bottom: 15px;
     font-weight: 600;
@@ -38,7 +39,7 @@
     margin-left:90px;
     border-radius: 5px;
     border: black 0.5px solid;
-    color: #393E46;
+    color: #EEEEEE;
 }
 
 .form_duration{
@@ -53,12 +54,14 @@
     width: 100px;
     margin-left: 145px;
     color: #393E46;
+    border-radius: 10px;
 }
 
 .form_season{
     width: 100px;
     margin-left: 145px;
     color: #393E46;
+    border-radius: 10px;
 }
 
 .form_countries{
@@ -67,6 +70,8 @@
     height: 150px;
     width: 200px;
     color: #222831;
+    border-radius: 10px;
+    font-size: 16px;
 
 }
 
@@ -80,6 +85,7 @@
     margin:5px;
     margin-top:7px;
     font-size: 15px;
+    color: #EEEEEE;
 }
 
 .form_span{

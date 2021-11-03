@@ -9,7 +9,7 @@
 }
 
 .details_card{
-    background-color: #EEEEEE;
+    background-color:#293443 ;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -51,7 +51,7 @@
 }
 
 .details_activities_card{
-    background-color: #EEEEEE ;
+    background-color:#293443 ;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border-radius: 10px;
     display: flex;
@@ -69,12 +69,23 @@
 
 .details_activities_card_name{
     font-size: 20px;
-    color:#00ADB5;
+    color: #00ADB5;
     
+}
+.details_activities_card_duration{
+    color:#EEEEEE;
+}
+
+.details_activities_card_difficulty{
+    color: #EEEEEE
+}
+
+.details_activities_card_season{
+    color:#EEEEEE
 }
 
 .details_card_name{
-    color:#222831;
+    color:#EEEEEE;
 }
 
 .details_card_names{
@@ -95,9 +106,22 @@
     font-size: 19px;
     margin-bottom: 25px;
     font-weight: 600;
-    color: #393E46
+    color: #EEEEEE
 }
 
 b{
-    color: #393E46
+    color: #EEEEEE
+}
+
+.details_card_p{
+    color: #EEEEEE
+}
+
+.imagen{
+    display: block;
+    left: 32%;
+    position:relative;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
 }

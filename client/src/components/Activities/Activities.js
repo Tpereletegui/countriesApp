@@ -5,6 +5,7 @@ import { getActivities, getCountries} from "../../redux/actions";
 import { Link } from "react-router-dom";
 import "./activities.css";
 import { Button } from "@mui/material";
+import Fondo from "../../fondo.png";
 
 
 export default function Activities () {
@@ -16,6 +17,7 @@ export default function Activities () {
 
 
      useEffect(() => {
+        window.scrollTo(0, 0)
     dispatch(getActivities("all"));
         
     }, [dispatch]); 
@@ -74,8 +76,9 @@ export default function Activities () {
                         
                     <div key={i} className="activities_card">
                       <h3 className="activities_title">{e.name}</h3>
+                      <img className="image" src={Fondo} alt="" />
                       <p className="activities_name"> Difficulty (1 to 5): {e.difficulty}</p>
-                      <p className="activities_name">Days: {e.duration}</p>
+                      <p className="activities_name"><u>Days:</u> {e.duration}</p>
                       <p className="activities_season">{e.season}</p>
                        <h4 className="activities_countries">Countries: </h4> {e.countries ? e.countries.map(x=>
                       <Link to={`/detail/${x.id}`} className="activities_link"> <p className="activities_country">-{x.name}</p></Link> ): <p>No countries added</p>}
