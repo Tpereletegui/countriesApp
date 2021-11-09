@@ -1,5 +1,6 @@
 .contenedor{
-     background-color: #393E46;
+
+    background-color: #393E46;
     background-size: cover;
     position:absolute;
     height: 250px;
@@ -7,6 +8,18 @@
     right:0px;
     bottom:0px;
     left:0px;
+    
+}
+
+
+.cards{
+
+    margin-left: 8%;
+    margin-top: 10%;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: flex-start;
+    align-items: space-around;
     
 }
 
@@ -20,6 +33,8 @@
     color: #EEEEEE;
 
 }
+
+
 
 
 
@@ -58,94 +73,17 @@ label{
     background-color: white;
 }
 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 90px;
-  bottom: 5px;
-}
-
-.card{
-    background-color:  #293443;
-    display: flex;
-    flex-direction: column;
-    height: max-content;
-    width: 300px;
-    margin:40px;
-    margin-bottom: 10px;
-    bottom: 100px;
-    border-radius: 15px;
-    box-shadow: 10px 20px 8px #222831;
-    
-}
-
-
-
 .fail{
-    margin-top: 100px;
+    margin-top: 5%;
     color: #EEEEEE;
-    margin-left: 100px;
+    margin-left: 20%;
     margin-bottom: 100px;
-}
-
-/*.imagen{
-    background-color:#EEEEEE;
-    margin-top: 15px;
-    height: 80px;
-    width: 300px;
-    margin-bottom: 10px;
-    border-radius:10px;
-
-}*/
-
-.img{
-    margin-top: 25px;
-    height: 120px;
-    width: 180px;
-    padding: 0px;
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    
-}
-
-
-
-
-
-.title{
-    width: 150px;
-    text-decoration-line: none;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 25px;
-    margin-left: 70px;
-    margin-top: 25px;
-    margin-bottom: 15px;
-    color: #EEEEEE;
-   
-    
-
-}
-
-.title:hover{
-    text-decoration-line:underline;
-}
-
-
-
-.continent{
-    position: static;
-    margin-left: 0px;
-    color: #EEEEEE
 }
 
 .optgroup{
   color: #293443;
 }
 
-.name{
-    margin-top: 15px;
-}
 
 
 .loading{

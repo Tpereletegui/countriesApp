@@ -64,7 +64,7 @@ function Home() {
     return (
         
         <div className={style.contenedor}>
-             <Nav className="navbar"/> 
+             <Nav className={style.navbar}/> 
 
              <div className={style.filters}>
              <label>Filters</label>
@@ -97,12 +97,12 @@ function Home() {
             </div>
             
 
-            <div className="cards"> 
+            <div className={style.cards}> 
              {
             countries.length?
             countries.map((e, i)=>{
                 return (
-                <div>
+                <div className={style.home_cards}>
                   <Card
                     key={i}
                     name={e.name}
@@ -112,7 +112,7 @@ function Home() {
                     />
                 </div>
                 )}): 
-                    <div className="fail">
+                    <div className={style.fail}>
                         <img className={style.loading} src={Loading} alt=""/>
                         <p>If it takes too long, select a different filter or reload the page</p>
                     </div>
