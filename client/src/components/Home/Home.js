@@ -24,14 +24,12 @@ function Home() {
     
        useEffect(()=> {
          dispatch(getCountries(1))
-        // dispatch(removeCountries())
     }, [dispatch]);  
      
     
     function handleChange(e){
      if(e.target.value==="all"){ 
        dispatch(getCountries(1));
-       dispatch(removeCountries())
       
     }
      else {

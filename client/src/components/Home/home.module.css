@@ -1,5 +1,5 @@
 .contenedor{
-
+    
     background-color: #393E46;
     background-size: cover;
     position:absolute;
@@ -14,12 +14,12 @@
 
 .cards{
 
-    margin-left: 8%;
+    
     margin-top: 10%;
     display: flex;
     flex-wrap:wrap;
-    justify-content: flex-start;
-    align-items: space-around;
+    justify-content: center;
+    align-items: center;
     
 }
 
@@ -44,6 +44,7 @@
     bottom: 30px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     margin-top: 100px;
     margin-left: 500px;
     margin-right: 500px;
