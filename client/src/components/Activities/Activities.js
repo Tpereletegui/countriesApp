@@ -40,7 +40,7 @@ export default function Activities () {
     return (
         <div className="activities_container">
             {console.log(activities)}
-            <Nav />
+            <Nav className="nav_bar"/>
             <div className="activities_filters">
             
             <label>Difficulty</label>
