@@ -118,7 +118,7 @@ function Nav(){
 		dispatch(removeCountries())
 		dispatch(getCountries())
 	}, [dispatch])
-	//ACA METER UN USEEFFECT como componentDidMount
+	
 
 	const handleInput = e => {
 		setInput(e.target.value)
@@ -136,7 +136,6 @@ function Nav(){
     setAnchorEl(null);
   };
 
-	// aca poner una funcion que handle el "buscar por nombre";
 	return (
 		<Box sx={{ flexGrow: 1 }}>
 		<AppBar position="static" style={{backgroundColor: '#222831'}}>
@@ -147,7 +146,7 @@ function Nav(){
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft: 0,marginRight:45  ,paddingLeft: 0,maxWidth: 190, color: '#00ADB5' }}
           >
-            Countries App
+           Countries App 
           </Typography>
           <Search onChange={handleInput}  value={input}>
             <StyledInputBase
@@ -183,6 +182,7 @@ function Nav(){
         <MenuItem onClick={handleClose} disableRipple>
           <NavLink to="/home" className="home"> Home </NavLink>
         </MenuItem>
+        <Divider></Divider>
         <MenuItem onClick={handleClose} disableRipple>
          <NavLink to="/activities" className="activities"> Activities </NavLink>
         </MenuItem>

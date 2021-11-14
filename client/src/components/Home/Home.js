@@ -7,6 +7,10 @@ import style from "./home.module.css";
 import { Button } from "@mui/material";
 import Loading from "../../gif.gif";
 import Card from "../Card/Card.js";
+import { styled, alpha } from '@mui/material/styles';
+
+
+
 
 
 
@@ -17,9 +21,9 @@ function Home() {
     let countries= useSelector (state => state.countries)
     let history= useHistory();
     const dispatch= useDispatch();
-     
     const [page, setPage] = useState(1);
-    const [order, setOrder] =useState("")
+    const [order, setOrder] =useState("");
+    
     
     
        useEffect(()=> {
@@ -65,7 +69,7 @@ function Home() {
              <Nav className={style.navbar}/> 
 
              <div className={style.filters}>
-             <label>Filters</label>
+             
              <select className={style.select} onChange={handleChange}>
              <option value="all">All</option>
                 <optgroup className={style.optgroup} label="Alphabetic">
@@ -91,6 +95,8 @@ function Home() {
                 </optgroup>
 
              </select>
+
+         
 
             </div>
             
