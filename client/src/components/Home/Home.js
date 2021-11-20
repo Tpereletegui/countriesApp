@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 import Nav from "../Nav/Nav";
 import {getCountries, getCountriesOrder, sortCountriesContinent, removeCountries} from "../../redux/actions"; 
 import style from "./home.module.css";
@@ -24,12 +24,11 @@ function Home() {
     const dispatch= useDispatch();
     const [page, setPage] = useState(1);
     const [order, setOrder] =useState("");
-    
-    
+    const location =useLocation();
     
        useEffect(()=> {
          dispatch(getCountries(1))
-    }, [dispatch]);  
+    }, [dispatch, location]);  
      
     
     function handleChange(e){

@@ -23,6 +23,7 @@ import ArchiveIcon from '@mui/icons-material/Archive';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Mapp from "../../mapping.png";
 
 import {Icon} from "@mdi/react";
 
@@ -147,7 +148,7 @@ function Nav(){
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft: 0,marginRight:45  ,paddingLeft: 0,maxWidth: 190, color: '#00ADB5' }}
           >
-          <NavLink to="/home" className="navlink"> Countries<br/>App  </NavLink>
+          <NavLink to="/home" className="navlink"> <img src={Mapp} alt="" className="mapp" /> </NavLink>
           </Typography>
           <Search onChange={handleInput}  value={input}>
             <StyledInputBase
