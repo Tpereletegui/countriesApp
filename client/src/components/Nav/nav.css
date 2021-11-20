@@ -85,3 +85,8 @@ button {
     text-decoration-line:underline;
     color:#00ADC9
 }
+
+.navlink{
+    text-decoration: none;
+    color: #00ADB5;
+}

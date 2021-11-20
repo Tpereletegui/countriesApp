@@ -4,8 +4,8 @@ import Nav from "../Nav/Nav";
 import { getActivities, getCountries} from "../../redux/actions";
 import { Link } from "react-router-dom";
 import "./activities.css";
-import { Button } from "@mui/material";
 import Fondo from "../../fondo.png";
+import Boton from "../Button/Button.js";
 
 
 export default function Activities () {
@@ -88,7 +88,7 @@ export default function Activities () {
             }
             </div>
             <div className="add-new">
-             <Link to='/create'><Button style={{backgroundColor: '#00ADB5', color: '#000000', marginLeft: '15px', textDecoration: 'none', marginBottom: '40px;'}} >Add </Button></Link>
+             <Link to='/create'><Boton style={{backgroundColor: '#00ADB5', color: '#000000', marginLeft: '15px', textDecoration: 'none', marginBottom: '40px;'}} name="Add"> </Boton></Link>
             </div>
         </div>
     )

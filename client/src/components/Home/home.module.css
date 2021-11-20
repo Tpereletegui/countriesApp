@@ -11,6 +11,17 @@
     
 }
 
+.labels{
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    height: 0.5rem;
+    margin-left: 17%;
+    margin-top: 5%;
+    color: white;
+
+}
+
 
 .cards{
 
@@ -26,10 +37,11 @@
 
 
 .filters{
-    position: relative;
+   position: relative;
     top: 5rem;
     margin-bottom: 30px;
     color: #EEEEEE;
+
 
 }
 
@@ -47,10 +59,11 @@
     margin-top: 100px;
     margin-left: 500px;
     margin-right: 500px;
-    margin-bottom: 30px;
-    
-    
-}
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    }
+
+
 label{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -89,3 +102,6 @@ label{
     width: 40%;
     height: 80%;
 }
+
+
+

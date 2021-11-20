@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import { Button } from '@mui/material';
+import Boton from "../Button/Button.js";
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -146,7 +147,7 @@ function Nav(){
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft: 0,marginRight:45  ,paddingLeft: 0,maxWidth: 190, color: '#00ADB5' }}
           >
-           Countries App 
+          <NavLink to="/home" className="navlink"> Countries<br/>App  </NavLink>
           </Typography>
           <Search onChange={handleInput}  value={input}>
             <StyledInputBase
@@ -156,7 +157,7 @@ function Nav(){
           	}
             />
           </Search>
-          <Button onClick={buscar} style={{backgroundColor: '#00ADB5', color: '#000000', height: 38, marginTop: 10, marginLeft: 4, width: 15}}><SearchIcon /> </Button>
+          <Boton onClick={buscar}  name={<SearchIcon />} style={{backgroundColor: '#00ADB5', color: '#000000', height: 38, marginTop: 10, marginLeft: 4, width: 15}}/>  
           <Button
                 style={{backgroundColor: '#222831', marginLeft: '25rem', marginTop: '0.5rem'}}
                 id="demo-customized-button"
@@ -166,19 +167,20 @@ function Nav(){
                 variant="contained"
                 disableElevation
                 onClick={handleClick}
+               
                 
-            >
-               <MenuIcon/>
-      </Button>
+           > 
+          <MenuIcon/>
+          </Button>
           <StyledMenu
-        id="demo-customized-menu"
-        MenuListProps={{
+          id="demo-customized-menu"
+          MenuListProps={{
           'aria-labelledby': 'demo-customized-button',
         }}
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-      >
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          >
         <MenuItem onClick={handleClose} disableRipple>
           <NavLink to="/home" className="home"> Home </NavLink>
         </MenuItem>
@@ -193,11 +195,13 @@ function Nav(){
       
     </Box>
 
-		
-		
+    
+    
 
-	)
+  )
 }
 
 
 export default Nav;
+
+         

@@ -1,7 +1,7 @@
 .form_container{
     background-color: #393E46;
     background-size: cover;  
-    position:relative;
+    position:absolute;
     top:0px;
     right:0px;
     bottom:0px;

@@ -22,7 +22,7 @@ class Details extends React.Component{
     render() {
         return (
             <div className="details_container">
-                    <Nav/>
+                    <Nav className="nav_bar" />
                     <div className="details_card">
                         {console.log(this.props.countryDetail)}
                         <img src={this.props.countryDetail.image} alt={this.props.countryDetail.name} className="details_card_image"/>

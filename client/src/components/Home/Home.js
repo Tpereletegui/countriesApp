@@ -4,7 +4,8 @@ import { NavLink, useHistory } from "react-router-dom";
 import Nav from "../Nav/Nav";
 import {getCountries, getCountriesOrder, sortCountriesContinent, removeCountries} from "../../redux/actions"; 
 import style from "./home.module.css";
-import { Button } from "@mui/material";
+//import { Button } from "@mui/material";
+import Boton from "../Button/Button.js";
 import Loading from "../../gif.gif";
 import Card from "../Card/Card.js";
 import { styled, alpha } from '@mui/material/styles';
@@ -67,9 +68,9 @@ function Home() {
         
         <div className={style.contenedor}>
              <Nav className={style.navbar}/> 
-
+            
              <div className={style.filters}>
-             
+
              <select className={style.select} onChange={handleChange}>
              <option value="all">All</option>
                 <optgroup className={style.optgroup} label="Alphabetic">
@@ -95,6 +96,8 @@ function Home() {
                 </optgroup>
 
              </select>
+
+             
 
          
 
@@ -128,8 +131,8 @@ function Home() {
             <div className={style.buttons}>
             
               
-            <Button onClick={pages} value="previous" disabled={page===1} style={{backgroundColor: '#00ADB5', color: '#000000'}} >Previous</Button>
-            <Button onClick={pages} value="next" disabled={countries.length < 9  || countries.length >40} style={{backgroundColor: '#00ADB5', color: '#000000'}}>Next</Button>
+            <Boton onClick={pages} name="Previous" value="previous" disabled={page===1} style={{backgroundColor: '#00ADB5', color: '#000000'}} >Previous</Boton>
+            <Boton onClick={pages} name="Next" value="next" disabled={countries.length < 9  || countries.length >40} style={{backgroundColor: '#00ADB5', color: '#000000'}}>Next</Boton>
             </div>
         </div>
         )

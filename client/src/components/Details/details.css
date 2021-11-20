@@ -1,11 +1,16 @@
+
 .details_container{
     background-color: #393E46;
     background-size: cover;
-    position:relative;
+    position:absolute;
     top:0px;
     right:0px;
     bottom:0px;
     left:0px;
+}
+.nav_bar{
+    margin-top: 90px;
+    position: absolute;
 }
 
 .details_card{
@@ -19,7 +24,7 @@
     margin-left: 32%;
     margin-bottom: 10px;
     bottom: 100px;
-    box-shadow: 1px 1px  0px 0px black;
+     box-shadow: 10px 20px 8px #222831;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -40,6 +45,7 @@
     justify-content: center;
     margin-left: 180px;
     margin-top: 100px;
+
    
 }
 
@@ -64,7 +70,7 @@
     margin-left: 30px;
     margin-bottom: 10px;
     bottom: 100px;
-    box-shadow: 1px 1px  0px 0px black;
+     box-shadow: 10px 20px 8px #222831;
 }
 
 .details_activities_card_name{
