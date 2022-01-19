@@ -11,7 +11,7 @@ const axios=require("axios");
         difficulty: parseInt(difficulty),
         duration: parseInt(duration),
         season: season
-       
+       //
     });
     // here, i add the countres of the form
     let filter=await countries.map(c => {
