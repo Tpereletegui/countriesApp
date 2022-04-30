@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, lazy, Suspense} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useLocation } from "react-router-dom";
 import Nav from "../Nav/Nav";
@@ -27,8 +27,15 @@ function Home() {
     const location =useLocation();
     
        useEffect(()=> {
-         dispatch(getCountries(1))
-    }, [dispatch, location]);  
+         async function paises(){
+           try {
+             await dispatch(getCountries(1))
+           } catch (error) {
+             
+           }
+         }    
+         paises()     
+    }, [dispatch, countries]);  
      
     
     function handleChange(e){
@@ -108,7 +115,9 @@ function Home() {
             countries.length?
             countries.map((e, i)=>{
                 return (
+                  <Suspense fallback={<h1>cargando</h1>}>
                 <div className={style.home_cards}>
+                 
                   <Card
                     key={i}
                     name={e.name}
@@ -117,11 +126,9 @@ function Home() {
                     id={e.id}
                     />
                 </div>
+                </Suspense>
                 )}): 
-                    <div className={style.fail}>
-                        <img className={style.loading} src={Loading} alt=""/>
-                        <p>If it takes too long, select a different filter or reload the page</p>
-                    </div>
+                   null
                 
                 }
                 
